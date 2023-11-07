@@ -38,7 +38,18 @@
                 <div class="col-lg-3">The solve about this math is : </div>
                 <div class="col-lg-9">
                     <p>
-                        {{ $calculator->first_number . ' ' . $calculator->operator . ' ' . $calculator->last_number . ' = ' . $calculator->result }}
+                        @php
+                            $operator = $calculator->operator;
+                            $first_number = $calculator->first_number;
+                            $last_number = $calculator->last_number;
+                            $result = $calculator->result;
+                        @endphp
+
+                        @if ($operator != '*' && $operator != '/' && $operator != '+' && $operator != '-' && $operator != '%')
+                            {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
+                        @else
+                            {{ $first_number . ' ' . $operator . ' ' . $last_number . ' = ' . $result }}
+                        @endif
                     </p>
                 </div>
             </div>
