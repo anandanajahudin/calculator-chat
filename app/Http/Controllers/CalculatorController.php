@@ -15,7 +15,7 @@ class CalculatorController extends Controller
         $operations = Operation::all();
         $calculators = Calculator::orderBy('id', 'DESC')->get();
 
-        return view('pages.calculator.index',
+        return view('pages.back.calculator.index',
         [
             'calculators' => $calculators,
             'operations' => $operations,
@@ -143,7 +143,7 @@ class CalculatorController extends Controller
     {
         $calculator = Calculator::findOrFail($id);
 
-        return view('pages.calculator.result.show', compact('calculator'));
+        return view('pages.back.calculator.result.show', compact('calculator'));
     }
 
     // The result of about command
@@ -152,7 +152,7 @@ class CalculatorController extends Controller
         $calculator = Calculator::findOrFail($id);
         $result = Helper::select('about')->where('id', 1)->first()->about;
 
-        return view('pages.calculator.result.basic', compact('calculator', 'result'));
+        return view('pages.back.calculator.result.basic', compact('calculator', 'result'));
     }
 
     // The result of profile command
@@ -161,7 +161,7 @@ class CalculatorController extends Controller
         $calculator = Calculator::findOrFail($id);
         $result = Helper::select('profile')->where('id', 1)->first()->profile;
 
-        return view('pages.calculator.result.basic', compact('calculator', 'result'));
+        return view('pages.back.calculator.result.basic', compact('calculator', 'result'));
     }
 
     // The result of help command
@@ -169,7 +169,7 @@ class CalculatorController extends Controller
     {
         $calculator = Calculator::findOrFail($id);
 
-        return view('pages.calculator.result.help', compact('calculator'));
+        return view('pages.back.calculator.result.help', compact('calculator'));
     }
 
     // The result of history command
@@ -182,7 +182,7 @@ class CalculatorController extends Controller
             ->whereNotNull('result')
             ->get();
 
-        return view('pages.calculator.result.history', compact('calculators'));
+        return view('pages.back.calculator.result.history', compact('calculators'));
     }
 
     public function edit(string $id)

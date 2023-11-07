@@ -11,7 +11,7 @@ class OperationController extends Controller
     {
         $operations = Operation::all();
 
-        return view('pages.operation.index',
+        return view('pages.back.operation.index',
         [
             'operations' => $operations,
         ]);

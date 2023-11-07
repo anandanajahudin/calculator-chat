@@ -259,11 +259,11 @@
         </div>
     </section>
 
-    @include('layouts.components.front.pages.testimoni')
-    @include('layouts.components.front.pages.service')
-    @include('layouts.components.front.pages.about')
-    @include('layouts.components.front.pages.team')
-    @include('layouts.components.front.pages.blog')
-    @include('layouts.components.front.pages.contact')
+    @include('pages.front.testimoni')
+    @include('pages.front.service')
+    @include('pages.front.about')
+    @include('pages.front.team')
+    @include('pages.front.blog')
+    @include('pages.front.contact')
 
 @endsection

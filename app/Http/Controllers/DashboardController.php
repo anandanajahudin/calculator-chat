@@ -9,13 +9,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        return view('pages.front.index');
     }
 
     public function dashboard()
     {
         $operations = Operation::all();
-        return view('pages.dashboard', ['operations' => $operations]);
+        return view('pages.back.dashboard', ['operations' => $operations]);
     }
 
     public function create()
