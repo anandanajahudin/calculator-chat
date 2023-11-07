@@ -26,7 +26,24 @@
                         </li>
                         <li><a href="#blog-section" class="nav-link">Blog</a></li>
                         <li><a href="#contact-section" class="nav-link">Contact</a></li>
-                        <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                        @guest
+                            <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                        @else
+                            <li class="has-children">
+                                <a href="#" class="nav-link">{{ Auth::user()->fname }}</a>
+                                <ul class="dropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Log
+                                            Out</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endguest
                     </ul>
                 </nav>
             </div>

@@ -7,8 +7,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 mb-5">
-                    <form action="signin" method="POST" class="p-5 bg-white">
+                    <form action="{{ route('signIn') }}" method="POST" class="p-5 bg-white">
                         @csrf
+
                         <h2 class="h4 mb-5">Login</h2>
 
                         <div class="row form-group">

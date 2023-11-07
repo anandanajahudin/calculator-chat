@@ -7,8 +7,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 mb-5">
-                    <form action="{{ route('signup') }}" method="POST" class="p-5 bg-white">
+                    <form action="{{ route('signUp') }}" method="POST" class="p-5 bg-white">
                         @csrf
+
                         <h2 class="h4 mb-5">Register</h2>
 
                         <div class="row form-group">
