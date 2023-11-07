@@ -26,7 +26,7 @@
                         </li>
                         <li><a href="#blog-section" class="nav-link">Blog</a></li>
                         <li><a href="#contact-section" class="nav-link">Contact</a></li>
-                        <li><a href="{{ route('dashboard') }}" class="nav-link">Login</a></li>
+                        <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
                     </ul>
                 </nav>
             </div>

@@ -12,6 +12,16 @@ class DashboardController extends Controller
         return view('pages.front.index');
     }
 
+    public function login()
+    {
+        return view('layouts.components.front.login');
+    }
+
+    public function register()
+    {
+        return view('layouts.components.front.register');
+    }
+
     public function dashboard()
     {
         $operations = Operation::all();

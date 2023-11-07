@@ -7,6 +7,10 @@ use App\Http\Controllers\OperationController;
 
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
 Route::get('/index', [DashboardController::class, 'index'])->name('index');
+Route::get('/login', [DashboardController::class, 'login'])->name('login');
+Route::get('/register', [DashboardController::class, 'register'])->name('register');
+Route::post('/signin', [DashboardController::class, 'signin'])->name('signin');
+Route::post('/signup', [DashboardController::class, 'signup'])->name('signup');
 
 Route::get('/calculator', [CalculatorController::class, 'index'])->name('calculator.index');
 Route::get('/calculator/create', [CalculatorController::class, 'create'])->name('calculator.create');

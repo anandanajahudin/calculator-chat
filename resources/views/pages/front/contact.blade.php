@@ -7,11 +7,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 mb-5">
-
-
-
                 <form action="#" class="p-5 bg-white">
-
                     <h2 class="h4 mb-5">Contact Form</h2>
 
                     <div class="row form-group">
@@ -26,7 +22,6 @@
                     </div>
 
                     <div class="row form-group">
-
                         <div class="col-md-12">
                             <label class="text-black" for="email">Email</label>
                             <input type="email" id="email" class="form-control">
@@ -34,7 +29,6 @@
                     </div>
 
                     <div class="row form-group">
-
                         <div class="col-md-12">
                             <label class="text-black" for="subject">Subject</label>
                             <input type="subject" id="subject" class="form-control">
@@ -54,11 +48,8 @@
                             <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
                         </div>
                     </div>
-
-
                 </form>
             </div>
-
         </div>
     </div>
 </section>
