@@ -108,6 +108,8 @@
             $('#datatable').DataTable();
         });
     </script>
+
+    @stack('scripts')
 </body>
 
 </html>

@@ -56,7 +56,47 @@
                         @endif
                     </p>
                 </div>
+                <div class="col-lg-12">
+                    <p><b>x = {{ $calculator->first_number }}</b></p>
+                    <p><b>y = {{ $calculator->last_number }}</b></p>
+                </div>
+                @if ($calculator->result == null)
+                    <div class="col-lg-12">
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+    <script type="text/javascript">
+        var x = new Chart(document.getElementById("myChart1"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Test",
+                    data: [{
+                        x: 0,
+                        y: 5
+                    }, {
+                        x: 5,
+                        y: 10
+                    }, {
+                        x: 8,
+                        y: 5
+                    }, {
+                        x: 15,
+                        y: 0
+                    }],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+@endpush

@@ -83,232 +83,260 @@ class CalculatorController extends Controller
             preg_match_all('!\d+!', $chat, $matches);
             $jumlahBilangan = count($matches[0]);
 
-            if ($jumlahBilangan > 2) {
-                return redirect()->route('dashboard')->with(['error' => 'Only for Calculations Between 2 Numbers!']);
+            if (str_contains($chat, 'x') && str_contains($chat, 'y')) {
 
-            } else {
-                preg_match_all('!\d+!', $chat, $matches);
-                $jumlahBilangan = count($matches[0]);
-                $angka1 = intval($matches[0][0]);
-
-                if (str_contains($chat, 'log')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = log($angka1);
-                        $operator = "log";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Logarithm Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, '!')) {
-                    if ($jumlahBilangan == 1) {
-                        $factorial = 1;
-                        for ($i = 1; $i <= $angka1; $i++){
-                            $factorial = $factorial * $i;
-                        }
-
-                        $hasil = $factorial;
-                        $operator = "!";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Factorial Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'sin')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = sin($angka1);
-                        $operator = "sin";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Sine Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'cos')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = cos($angka1);
-                        $operator = "cos";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Cosine Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'tan')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = tan($angka1);
-                        $operator = "tan";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Tangent Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'cot')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = cot($angka1);
-                        $operator = "cot";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Cotangent Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'sec')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = sec($angka1);
-                        $operator = "sec";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Secant Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'cosec')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = cosec($angka1);
-                        $operator = "cosec";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Cosecant Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'arcsin')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = arcsin($angka1);
-                        $operator = "arcsin";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Inverse Since Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'arccos')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = arccos($angka1);
-                        $operator = "arccos";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Inverse Cosine Only for 1 Number!']);
-                    }
-
-                } else if (str_contains($chat, 'arctan')) {
-                    if ($jumlahBilangan == 1) {
-                        $hasil = arctan($angka1);
-                        $operator = "arctan";
-
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
-                    } else {
-                        return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
-                    }
-
-                // Operator Dasar + - * /
+                $dataX = str_contains($chat, 'x');
+                if ($dataX == true) {
+                    $x = 1;
                 } else {
-
-                    $arrSplit = str_split($chat, 1);
-                    $jumKarakter = strlen($chat);
-                    $pattern = '/^[A-Za-z]+$/';
-
-                    $arrBaru = [];
-                    $operator = '';
-                    $arrAngka = [];
-                    $angka1 = 0;
-                    $angka2 = 0;
-
-                    for($i=0; $i < $jumKarakter; $i++) {
-                        if (preg_match('/[\*+-]/', $arrSplit[$i])) {
-                            $operator = $arrSplit[$i];
-                        }
-                    }
-
-                    $angka2 = intval($matches[0][1]);
-                    $hasil = $angka1 .' '. $operator .' '. $angka2;
-
-                    if ($operator == '+') {
-                        $hasil = $angka1 + $angka2;
-                    } else if ($operator == '-') {
-                        $hasil = $angka1 - $angka2;
-                    } else if ($operator == '*') {
-                        $hasil = $angka1 * $angka2;
-                    } else if ($operator == '/') {
-                        if ($angka2 != 0) {
-                            $hasil = $angka1 / $angka2;
-                        } else {
-                            $hasil = 'Division by zero is undefined';
-                        }
-                    }
-
-                    $calculator = Calculator::create([
-                        'chat' => $chat,
-                        'first_number' => $angka1,
-                        'last_number' => $angka2,
-                        'operator' => $operator,
-                        'result' => $hasil,
-                    ]);
-
+                    $x = 0;
                 }
+
+                $dataY = str_contains($chat, 'y');
+                if ($dataY == true) {
+                    $y = 1;
+                } else {
+                    $y = 0;
+                }
+
+                $calculator = Calculator::create([
+                    'chat' => $chat,
+                    'first_number' => $x,
+                    'last_number' => $y,
+                ]);
                 $id = $calculator->id;
 
-                return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of math solve!']);
+                return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear calculation']);
+
+            } else {
+                if ($jumlahBilangan > 2) {
+                    return redirect()->route('dashboard')->with(['error' => 'Only for Calculations Between 2 Numbers!']);
+
+                } else {
+
+                    preg_match_all('!\d+!', $chat, $matches);
+                    $jumlahBilangan = count($matches[0]);
+                    $angka1 = intval($matches[0][0]);
+
+                    if (str_contains($chat, 'log')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = log($angka1);
+                            $operator = "log";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Logarithm Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, '!')) {
+                        if ($jumlahBilangan == 1) {
+                            $factorial = 1;
+                            for ($i = 1; $i <= $angka1; $i++){
+                                $factorial = $factorial * $i;
+                            }
+
+                            $hasil = $factorial;
+                            $operator = "!";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Factorial Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'sin')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = sin($angka1);
+                            $operator = "sin";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Sine Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'cos')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = cos($angka1);
+                            $operator = "cos";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Cosine Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'tan')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = tan($angka1);
+                            $operator = "tan";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Tangent Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'cot')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = cot($angka1);
+                            $operator = "cot";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Cotangent Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'sec')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = sec($angka1);
+                            $operator = "sec";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Secant Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'cosec')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = cosec($angka1);
+                            $operator = "cosec";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Cosecant Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'arcsin')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = arcsin($angka1);
+                            $operator = "arcsin";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Inverse Since Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'arccos')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = arccos($angka1);
+                            $operator = "arccos";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Inverse Cosine Only for 1 Number!']);
+                        }
+
+                    } else if (str_contains($chat, 'arctan')) {
+                        if ($jumlahBilangan == 1) {
+                            $hasil = arctan($angka1);
+                            $operator = "arctan";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
+                        }
+
+                    // Operator Dasar + - * /
+                    } else {
+
+                        $arrSplit = str_split($chat, 1);
+                        $jumKarakter = strlen($chat);
+                        $pattern = '/^[A-Za-z]+$/';
+
+                        $arrBaru = [];
+                        $operator = '';
+                        $arrAngka = [];
+                        $angka1 = 0;
+                        $angka2 = 0;
+
+                        for($i=0; $i < $jumKarakter; $i++) {
+                            if (preg_match('/[\*+-]/', $arrSplit[$i])) {
+                                $operator = $arrSplit[$i];
+                            }
+                        }
+
+                        $angka2 = intval($matches[0][1]);
+                        $hasil = $angka1 .' '. $operator .' '. $angka2;
+
+                        if ($operator == '+') {
+                            $hasil = $angka1 + $angka2;
+                        } else if ($operator == '-') {
+                            $hasil = $angka1 - $angka2;
+                        } else if ($operator == '*') {
+                            $hasil = $angka1 * $angka2;
+                        } else if ($operator == '/') {
+                            if ($angka2 != 0) {
+                                $hasil = $angka1 / $angka2;
+                            } else {
+                                $hasil = 'Division by zero is undefined';
+                            }
+                        }
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $angka1,
+                            'last_number' => $angka2,
+                            'operator' => $operator,
+                            'result' => $hasil,
+                        ]);
+
+                    }
+                    $id = $calculator->id;
+
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of math solve!']);
+                }
             }
         }
     }
