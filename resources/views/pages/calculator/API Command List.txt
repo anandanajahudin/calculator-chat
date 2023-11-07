@@ -1,0 +1,62 @@
+﻿List of Commands for API
+
+About
+[About the Company]
+(Insert filler text)
+[About the Service]
+(Insert filler text)
+
+Help
+Try the following commands!
+About – Shows you what the service is about and what the company does
+Solve – Input a math equation to solve for right after it and watch what happens!
+Graph – Output a graph of a function
+Exit – Logs you out
+Library – Shows you what you can do
+Profile – Shows your profile information
+History – Shows the calculations you did
+
+Solve
+If invalid QUERY:
+Please enter a valid command or query
+Syntax: Solve QUERY
+If valid QUERY:
+QUERY = RESULT
+
+Graph
+If invalid QUERY:
+Please enter a valid command or query
+Syntax: Graph QUERY
+If valid QUERY:
+(Output) QUERY
+(Graph Image)
+
+Library
+(List of all the operators, check SymPy)
++ [Addition]
+- [Subtraction]
+* [Multiplication]
+/ [Division]
+^ [Exponent]
+< [Less than]
+> [Greater than]
+π [3.1415926535]
+e [0.434]
+log (base) (x) [Logarithm]
+! [Factorial]
+Sin [Sine Function]
+Cos [Cosine Function]
+Tan [Tangent Function]
+Cot [Cotangent Function]
+Sec [Secant Function]
+Cosec [Cosecant Function]
+ArcSin [Inverse Since Function]
+ArcCos [Inverse Cosine Function]
+ArcTan [Inverse Tangent Function]
+
+Profile
+(Insert Profile Info Here)
+
+History
+(List History Here)
+

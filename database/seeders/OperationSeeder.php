@@ -1,0 +1,39 @@
+<?php
+
+namespace Database\Seeders;
+
+use Carbon\Carbon;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class OperationSeeder extends Seeder
+{
+    public function run(): void
+    {
+        DB::table('operations')->insert([
+            'name' => 'Multiple (perkalian)',
+            'operator' => '*',
+            'description' => '2 * 2 = 4',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Divide (pembagian)',
+            'operator' => '/',
+            'description' => '2 / 2 = 1',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Summation (penjumlahan)',
+            'operator' => '+',
+            'description' => '2 + 2 = 4',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Subtraction (pengurangan)',
+            'operator' => '-',
+            'description' => '2 - 2 = 0',
+            'created_at' => Carbon::now(),
+        ]);
+    }
+}
