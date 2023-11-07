@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <h4>Calculator Chat</h4>
     <div class="card">
         <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Calculator Chat</h5>
             <form action="{{ route('calculator.store') }}" method="POST">
                 @csrf
                 {{-- <div class="row">

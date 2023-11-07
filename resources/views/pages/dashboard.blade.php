@@ -3,6 +3,20 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Calculator Chat</h5>
+            <form action="{{ route('calculator.store') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="chat" id="chat" placeholder="Send a message"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <!--  Row 1 -->
     <div class="row">
         <div class="col-lg-12 d-flex align-items-strech">
