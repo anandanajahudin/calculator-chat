@@ -46,7 +46,11 @@
                         @endphp
 
                         @if ($operator != '*' && $operator != '/' && $operator != '+' && $operator != '-' && $operator != '%')
-                            {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
+                            @if ($operator == '!')
+                                {{ $first_number . '' . $operator . ' = ' . $result }}
+                            @else
+                                {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
+                            @endif
                         @else
                             {{ $first_number . ' ' . $operator . ' ' . $last_number . ' = ' . $result }}
                         @endif

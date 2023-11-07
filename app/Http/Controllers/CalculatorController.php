@@ -108,7 +108,20 @@ class CalculatorController extends Controller
 
                 } else if (str_contains($chat, '!')) {
                     if ($jumlahBilangan == 1) {
-                        // factorial";
+                        $factorial = 1;
+                        for ($i = 1; $i <= $angka1; $i++){
+                            $factorial = $factorial * $i;
+                        }
+
+                        $hasil = $factorial;
+                        $operator = "!";
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $angka1,
+                            'operator' => $operator,
+                            'result' => $hasil,
+                        ]);
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Factorial Only for 1 Number!']);
                     }
@@ -124,7 +137,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Sine Only for 1 Number!']);
                     }
@@ -140,7 +152,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Cosine Only for 1 Number!']);
                     }
@@ -156,7 +167,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Tangent Only for 1 Number!']);
                     }
@@ -172,7 +182,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Cotangent Only for 1 Number!']);
                     }
@@ -218,7 +227,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Inverse Since Only for 1 Number!']);
                     }
@@ -234,7 +242,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Inverse Cosine Only for 1 Number!']);
                     }
@@ -250,7 +257,6 @@ class CalculatorController extends Controller
                             'operator' => $operator,
                             'result' => $hasil,
                         ]);
-
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
                     }
