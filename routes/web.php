@@ -5,7 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\OperationController;
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/index', [DashboardController::class, 'index'])->name('index');
 
 Route::get('/calculator', [CalculatorController::class, 'index'])->name('calculator.index');
 Route::get('/calculator/create', [CalculatorController::class, 'create'])->name('calculator.create');

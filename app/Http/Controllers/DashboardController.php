@@ -9,6 +9,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        return view('pages.index');
+    }
+
+    public function dashboard()
+    {
         $operations = Operation::all();
         return view('pages.dashboard', ['operations' => $operations]);
     }
