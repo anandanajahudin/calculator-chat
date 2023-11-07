@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\OperationController;
 
-Route::get('/', [DashboardController::class, 'index'])->name('index');
+// Company Profile
+Route::get('/', [LandingController::class, 'index'])->name('index');
 
 // Auth
 Route::controller(LoginController::class)->group(function() {

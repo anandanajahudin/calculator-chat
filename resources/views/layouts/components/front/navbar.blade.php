@@ -32,6 +32,7 @@
                             <li class="has-children">
                                 <a href="#" class="nav-link">{{ Auth::user()->fname }}</a>
                                 <ul class="dropdown">
+                                    <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                                     <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

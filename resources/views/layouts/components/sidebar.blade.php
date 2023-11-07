@@ -13,6 +13,14 @@
             </a>
         </li>
         <li class="sidebar-item">
+            <a class="sidebar-link" href="{{ route('index') }}" aria-expanded="false">
+                <span>
+                    <i class="ti ti-home"></i>
+                </span>
+                <span class="hide-menu">Company Profile</span>
+            </a>
+        </li>
+        <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('calculator.index') }}" aria-expanded="false">
                 <span>
                     <i class="ti ti-file-description"></i>
