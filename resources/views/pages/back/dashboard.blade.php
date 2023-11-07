@@ -7,6 +7,10 @@
         <div class="alert alert-success">
             {{ $message }}
         </div>
+    @elseif($message = Session::get('error'))
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
     @else
         <div class="alert alert-success">
             You are logged in!

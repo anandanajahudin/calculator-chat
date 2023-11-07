@@ -80,61 +80,67 @@ class CalculatorController extends Controller
             return redirect()->route('calculator.history')->with(['success' => 'The result history of your calculations!']);
 
         } else {
-            $arrSplit = str_split($chat, 1);
-            $jumKarakter = strlen($chat);
-            $pattern = '/^[A-Za-z]+$/';
+            preg_match_all('!\d+!', $chat, $matches);
+            $jumlahBilangan = count($matches[0]);
 
-            $arrBaru = [];
-            $operator = '';
-            $arrAngka = [];
-            $angka1 = 0;
-            $angka2 = 0;
+            if ($jumlahBilangan > 2) {
+                return redirect()->route('dashboard')->with(['error' => 'Only for Two Numbers!']);
 
-            for($i=0; $i < $jumKarakter; $i++) {
+            } else {
 
-                if ( preg_match($pattern, $arrSplit[$i]) ) {
-                } else {
-                    array_push($arrBaru, $arrSplit[$i]);
+                preg_match_all('!\d+!', $chat, $matches);
+                $jumlahBilangan = count($matches[0]);
+
+                $arrSplit = str_split($chat, 1);
+                $jumKarakter = strlen($chat);
+                $pattern = '/^[A-Za-z]+$/';
+
+                $arrBaru = [];
+                $operator = '';
+                $arrAngka = [];
+                $angka1 = 0;
+                $angka2 = 0;
+
+                for($i=0; $i < $jumKarakter; $i++) {
+
+                    if (preg_match('/[\*+-]/', $arrSplit[$i])) {
+                        $operator = $arrSplit[$i];
+                    }
+
                 }
 
-                if (preg_match('/[\*+-]/', $arrSplit[$i])) {
-                    $operator = $arrSplit[$i];
+
+                $angka1 = intval($matches[0][0]);
+                $angka2 = intval($matches[0][1]);
+                $hasil = $angka1 .' '. $operator .' '. $angka2;
+
+                if ($operator == '+') {
+                    $hasil = $angka1 + $angka2;
+                } else if ($operator == '-') {
+                    $hasil = $angka1 - $angka2;
+                } else if ($operator == '*') {
+                    $hasil = $angka1 * $angka2;
+                } else if ($operator == '/') {
+                    if ($angka2 != 0) {
+                        $hasil = $angka1 / $angka2;
+                    } else {
+                        $hasil = 'Division by zero is undefined';
+                    }
                 }
 
-                if (is_numeric($arrSplit[$i])) {
-                    array_push($arrAngka, $arrSplit[$i]);
-                }
+                $calculator = Calculator::create([
+                    'chat' => $chat,
+                    'first_number' => $angka1,
+                    'last_number' => $angka2,
+                    'operator' => $operator,
+                    'result' => $hasil,
+                ]);
+
+                $id = $calculator->id;
+
+                return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of math solve!']);
+
             }
-
-            $angka1 = intval($arrAngka[0]);
-            $angka2 = intval($arrAngka[1]);
-            $hasil = $angka1 .' '. $operator .' '. $angka2;
-
-            if ($operator == '+') {
-                $hasil = $angka1 + $angka2;
-            } else if ($operator == '-') {
-                $hasil = $angka1 - $angka2;
-            } else if ($operator == '*') {
-                $hasil = $angka1 * $angka2;
-            } else if ($operator == '/') {
-                if ($angka2 != 0) {
-                    $hasil = $angka1 / $angka2;
-                } else {
-                    $hasil = 'Division by zero is undefined';
-                }
-            }
-
-            $calculator = Calculator::create([
-                'chat' => $chat,
-                'first_number' => $angka1,
-                'last_number' => $angka2,
-                'operator' => $operator,
-                'result' => $hasil,
-            ]);
-
-            $id = $calculator->id;
-
-            return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of math solve!']);
         }
     }
 
