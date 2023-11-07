@@ -3,6 +3,16 @@
 @section('title', 'Dashboard')
 
 @section('content')
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            {{ $message }}
+        </div>
+    @else
+        <div class="alert alert-success">
+            You are logged in!
+        </div>
+    @endif
+
     <div class="card">
         <div class="card-body">
             <h5 class="card-title fw-semibold mb-4">Calculator Chat</h5>
