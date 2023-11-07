@@ -29,7 +29,7 @@
                 </div>
 
                 <!-- Sidebar navigation-->
-                @include('layouts.components.sidebar')
+                @include('layouts.components.back.sidebar')
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->

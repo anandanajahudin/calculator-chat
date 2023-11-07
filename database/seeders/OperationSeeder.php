@@ -35,5 +35,71 @@ class OperationSeeder extends Seeder
             'description' => '2 - 2 = 0',
             'created_at' => Carbon::now(),
         ]);
+        DB::table('operations')->insert([
+            'name' => 'log',
+            'operator' => 'log',
+            'description' => 'log() = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Factorial',
+            'operator' => '!',
+            'description' => '2! = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Sin',
+            'operator' => 'sin',
+            'description' => '2! = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Cos',
+            'operator' => 'cos',
+            'description' => 'cos(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Tan',
+            'operator' => 'tan',
+            'description' => 'tan(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Cot',
+            'operator' => 'cot',
+            'description' => 'cot(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Sec',
+            'operator' => 'sec',
+            'description' => 'sec(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Cosec',
+            'operator' => 'cosec',
+            'description' => 'cosec(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'ArcSin',
+            'operator' => 'arcsin',
+            'description' => 'arcsin(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'ArcCos',
+            'operator' => 'arccos',
+            'description' => 'arccos(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'arctan',
+            'operator' => 'arctan',
+            'description' => 'arctan(2) = 2',
+            'created_at' => Carbon::now(),
+        ]);
     }
 }
