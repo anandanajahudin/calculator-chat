@@ -49,9 +49,9 @@
                             <th class="border-bottom-0">
                                 <h6 class="fw-semibold mb-0">Result</h6>
                             </th>
-                            <th class="border-bottom-0">
+                            {{-- <th class="border-bottom-0">
                                 <h6 class="fw-semibold mb-0">Action</h6>
-                            </th>
+                            </th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -78,11 +78,11 @@
                                 <td class="border-bottom-0">
                                     <p class="mb-0 fw-normal">{{ $calculator->result }}</p>
                                 </td>
-                                <td class="border-bottom-0">
+                                {{-- <td class="border-bottom-0">
                                     <div class="d-flex align-items-center gap-2">
                                         <a class="btn btn-primary btn-sm"><i class="ti ti-pencil"></i></a>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>

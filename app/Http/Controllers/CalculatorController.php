@@ -353,7 +353,6 @@ class CalculatorController extends Controller
         $calculators = Calculator::select("*")
             ->whereNotNull('first_number')
             ->whereNotNull('operator')
-            ->whereNotNull('last_number')
             ->whereNotNull('result')
             ->get();
 
