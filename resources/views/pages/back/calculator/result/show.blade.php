@@ -35,15 +35,16 @@
                 </div>
             </div>
             <div class="row">
+                @php
+                    $operator = $calculator->operator;
+                    $first_number = $calculator->first_number;
+                    $last_number = $calculator->last_number;
+                    $result = $calculator->result;
+                @endphp
+
                 <div class="col-lg-3">The solve about this math is : </div>
                 <div class="col-lg-9">
                     <p>
-                        @php
-                            $operator = $calculator->operator;
-                            $first_number = $calculator->first_number;
-                            $last_number = $calculator->last_number;
-                            $result = $calculator->result;
-                        @endphp
 
                         @if ($operator != '*' && $operator != '/' && $operator != '+' && $operator != '-' && $operator != '%')
                             @if ($operator == '!')
