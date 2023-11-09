@@ -88,35 +88,24 @@ class CalculatorController extends Controller
             // Persamaan Linier 2 variabel x dan y, Example (2x + 3y = 6)
             if (str_contains($chat, 'x') && str_contains($chat, 'y')) {
 
-                // $dataX = str_contains($chat, 'x');
-                // if ($dataX == true) {
-                //     $x = 1;
-                // } else {
-                //     $x = 0;
-                // }
+                if ($jumlahBilangan == 2) {
 
-                // $dataY = str_contains($chat, 'y');
-                // if ($dataY == true) {
-                //     $y = 1;
-                // } else {
-                //     $y = 0;
-                // }
+                    $angka2 = intval($matches[0][1]);
+                    $result = pow($angka1, $angka2);
 
-                $x = 2;
-                $y = 3;
-                $result = pow($x, $y);
+                    $calculator = Calculator::create([
+                        'chat' => $chat,
+                        'first_number' => $angka1,
+                        'last_number' => $angka2,
+                        'result' => $result,
+                    ]);
+                    $id = $calculator->id;
 
-                dd($result);
-                // echo "The result of $x raised to the power of $y is: $result";
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation between two variables x and y']);
 
-                // $calculator = Calculator::create([
-                //     'chat' => $chat,
-                //     'first_number' => $x,
-                //     'last_number' => $y,
-                // ]);
-                // $id = $calculator->id;
-
-                // return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear calculation']);
+                } else {
+                    return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x + 6y)']);
+                }
 
             } else if (str_contains($chat, 'x') && str_contains($chat, '=')) {
 
@@ -134,7 +123,7 @@ class CalculatorController extends Controller
 
                     $id = $calculator->id;
 
-                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable x']);
 
                 // Persamaan Linier 1 variabel x, Example (2x + 4 = 6) or (2x - 4 = 6)
                 } else if ($jumlahBilangan == 3) {
@@ -154,7 +143,7 @@ class CalculatorController extends Controller
 
                         $id = $calculator->id;
 
-                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable x']);
 
                     } else if (str_contains($chat, '-')) {
 
@@ -168,7 +157,7 @@ class CalculatorController extends Controller
 
                         $id = $calculator->id;
 
-                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable x']);
 
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x - 4 = 6)']);
@@ -193,7 +182,7 @@ class CalculatorController extends Controller
 
                     $id = $calculator->id;
 
-                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable y']);
 
                 // Persamaan Linier 1 variabel x, Example (2x + 4 = 6) or (2x - 4 = 6)
                 } else if ($jumlahBilangan == 3) {
@@ -213,7 +202,7 @@ class CalculatorController extends Controller
 
                         $id = $calculator->id;
 
-                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable y']);
 
                     } else if (str_contains($chat, '-')) {
 
@@ -227,7 +216,7 @@ class CalculatorController extends Controller
 
                         $id = $calculator->id;
 
-                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable y']);
 
                     } else {
                         return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x - 4 = 6)']);
@@ -423,8 +412,6 @@ class CalculatorController extends Controller
                             $arrBaru = [];
                             $operator = '';
                             $arrAngka = [];
-                            $angka1 = 0;
-                            $angka2 = 0;
 
                             for($i=0; $i < $jumKarakter; $i++) {
                                 if (preg_match('/[\*+-]/', $arrSplit[$i])) {
@@ -433,8 +420,7 @@ class CalculatorController extends Controller
                             }
 
                             $angka2 = intval($matches[0][1]);
-                            $hasil = $angka1 .' '. $operator .' '. $angka2;
-
+                            // $hasil = $angka1 .' '. $operator .' '. $angka2;
                             if ($operator == '+') {
                                 $hasil = $angka1 + $angka2;
                             } else if ($operator == '-') {

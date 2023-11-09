@@ -48,6 +48,14 @@
                         @if ($operator != '*' && $operator != '/' && $operator != '+' && $operator != '-' && $operator != '%')
                             @if ($operator == '!')
                                 {{ $first_number . '' . $operator . ' = ' . $result }}
+                            @elseif ($operator == null)
+                                @if ($first_number != null && $last_number != null)
+                                    x = {{ $first_number }} | y = {{ $last_number }}
+                                @elseif ($first_number != null)
+                                    x = {{ $first_number }}
+                                @else
+                                    y = {{ $last_number }}
+                                @endif
                             @else
                                 {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
                             @endif
@@ -56,11 +64,12 @@
                         @endif
                     </p>
                 </div>
-                @if ($calculator->result == null)
-                    <div class="col-lg-12">
-                        <p><b>x = {{ $calculator->first_number }}</b></p>
-                        <p><b>y = {{ $calculator->last_number }}</b></p>
-                    </div>
+
+                <div class="col-lg-12">
+                    <p><b>result = {{ $result }}</b></p>
+                </div>
+
+                @if ($operator == null)
                     <div class="col-lg-12">
                         <canvas id="myChart1"></canvas>
                     </div>
