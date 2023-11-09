@@ -96,7 +96,7 @@ class OperationSeeder extends Seeder
             'created_at' => Carbon::now(),
         ]);
         DB::table('operations')->insert([
-            'name' => 'arctan',
+            'name' => 'ArcTan',
             'operator' => 'arctan',
             'description' => 'arctan(2) = 2',
             'created_at' => Carbon::now(),

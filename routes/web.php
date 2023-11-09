@@ -34,7 +34,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/calculator/about/{id}', [CalculatorController::class, 'about'])->name('calculator.about');
     Route::get('/calculator/help/{id}', [CalculatorController::class, 'help'])->name('calculator.help');
     Route::get('/calculator/profile/{id}', [CalculatorController::class, 'profile'])->name('calculator.profile');
-    Route::get('/calculator/history', [CalculatorController::class, 'history'])->name('calculator.history');
+    Route::get('/calculator/history/{id}', [CalculatorController::class, 'history'])->name('calculator.history');
 
     // Library
     Route::get('/operation', [OperationController::class, 'index'])->name('operation.index');

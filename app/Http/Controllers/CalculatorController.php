@@ -39,7 +39,8 @@ class CalculatorController extends Controller
 
         $chat = strtolower($request->chat);
 
-        if ($chat == 'About' || $chat == 'ABOUT' || $chat == 'about') {
+        // ABOUT
+        if (str_contains($chat, 'about')) {
 
             $calculator = Calculator::create([
                 'chat' => $chat,
@@ -49,7 +50,7 @@ class CalculatorController extends Controller
 
             return redirect()->route('calculator.about', [$id])->with(['success' => 'The result of about!']);
 
-        } else if ($chat == 'Help' || $chat == 'HELP' || $chat == 'help') {
+        } else if (str_contains($chat, 'help')) {
 
             $calculator = Calculator::create([
                 'chat' => $chat,
@@ -59,7 +60,7 @@ class CalculatorController extends Controller
 
             return redirect()->route('calculator.help', [$id])->with(['success' => 'The result of help!']);
 
-        } else if ($chat == 'Profile' || $chat == 'PROFILE' || $chat == 'profile') {
+        } else if (str_contains($chat, 'profile')) {
 
             $calculator = Calculator::create([
                 'chat' => $chat,
@@ -69,7 +70,7 @@ class CalculatorController extends Controller
 
             return redirect()->route('calculator.profile', [$id])->with(['success' => 'The result of profile!']);
 
-        } else if ($chat == 'History' || $chat == 'HISTORY' || $chat == 'history') {
+        } else if (str_contains($chat, 'history')) {
 
             $calculator = Calculator::create([
                 'chat' => $chat,
@@ -77,7 +78,7 @@ class CalculatorController extends Controller
 
             $id = $calculator->id;
 
-            return redirect()->route('calculator.history')->with(['success' => 'The result history of your calculations!']);
+            return redirect()->route('calculator.history', [$id])->with(['success' => 'The result history of your calculations!']);
 
         } else {
             preg_match_all('!\d+!', $chat, $matches);
@@ -376,15 +377,17 @@ class CalculatorController extends Controller
     }
 
     // The result of history command
-    public function history()
+    public function history(string $id)
     {
+        $calculator = Calculator::findOrFail($id);
+
         $calculators = Calculator::select("*")
             ->whereNotNull('first_number')
             ->whereNotNull('operator')
             ->whereNotNull('result')
             ->get();
 
-        return view('pages.back.calculator.result.history', compact('calculators'));
+        return view('pages.back.calculator.result.history', compact('calculator','calculators'));
     }
 
     public function edit(string $id)

@@ -26,7 +26,20 @@
 
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Calculation History List</h5>
+            <h4>Result</h4>
+            <div class="row">
+                <div class="col-lg-3">Your command line is : </div>
+                <div class="col-lg-9">
+                    <p>{{ $calculator->chat }}</p>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-lg-3">The result is : </div>
+                <div class="col-lg-9">
+                    Calculation History List
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table text-nowrap mb-0 align-middle" id="datatable">
                     <thead class="text-dark fs-4">

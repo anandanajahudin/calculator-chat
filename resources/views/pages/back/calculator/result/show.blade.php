@@ -56,11 +56,11 @@
                         @endif
                     </p>
                 </div>
-                <div class="col-lg-12">
-                    <p><b>x = {{ $calculator->first_number }}</b></p>
-                    <p><b>y = {{ $calculator->last_number }}</b></p>
-                </div>
                 @if ($calculator->result == null)
+                    <div class="col-lg-12">
+                        <p><b>x = {{ $calculator->first_number }}</b></p>
+                        <p><b>y = {{ $calculator->last_number }}</b></p>
+                    </div>
                     <div class="col-lg-12">
                         <canvas id="myChart1"></canvas>
                     </div>
