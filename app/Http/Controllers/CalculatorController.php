@@ -83,41 +83,105 @@ class CalculatorController extends Controller
         } else {
             preg_match_all('!\d+!', $chat, $matches);
             $jumlahBilangan = count($matches[0]);
+            $angka1 = intval($matches[0][0]);
 
+            // Persamaan Linier 2 variabel x dan y, Example (2x + 3y = 6)
             if (str_contains($chat, 'x') && str_contains($chat, 'y')) {
 
-                $dataX = str_contains($chat, 'x');
-                if ($dataX == true) {
-                    $x = 1;
+                // $dataX = str_contains($chat, 'x');
+                // if ($dataX == true) {
+                //     $x = 1;
+                // } else {
+                //     $x = 0;
+                // }
+
+                // $dataY = str_contains($chat, 'y');
+                // if ($dataY == true) {
+                //     $y = 1;
+                // } else {
+                //     $y = 0;
+                // }
+
+                $x = 2;
+                $y = 3;
+                $result = pow($x, $y);
+
+                dd($result);
+                // echo "The result of $x raised to the power of $y is: $result";
+
+                // $calculator = Calculator::create([
+                //     'chat' => $chat,
+                //     'first_number' => $x,
+                //     'last_number' => $y,
+                // ]);
+                // $id = $calculator->id;
+
+                // return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear calculation']);
+
+            } else if (str_contains($chat, 'x') && str_contains($chat, '=')) {
+
+                // Persamaan Linier 1 variabel x, Example (2x = 6)
+                if ($jumlahBilangan == 2) {
+
+                    $angka2 = intval($matches[0][1]);
+                    $result = $angka2 / $angka1;
+
+                    $calculator = Calculator::create([
+                        'chat' => $chat,
+                        'first_number' => $angka1,
+                        'result' => $result,
+                    ]);
+
+                    $id = $calculator->id;
+
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+
+                // Persamaan Linier 1 variabel x, Example (2x + 4 = 6)
+                } else if ($jumlahBilangan == 3) {
+
+                    $angka2 = intval($matches[0][1]);
+                    $angka3 = intval($matches[0][2]);
+
+                    if (str_contains($chat, '+')) {
+
+                        $result = ($angka3 - $angka2) / $angka1;
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $angka1,
+                            'result' => $result,
+                        ]);
+
+                        $id = $calculator->id;
+
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+
+                    } else if (str_contains($chat, '-')) {
+
+                        $result = ($angka3 + $angka2) / $angka1;
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $angka1,
+                            'result' => $result,
+                        ]);
+
+                        $id = $calculator->id;
+
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear equation One Variable']);
+
+                    } else {
+                        return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x - 4 = 6)']);
+                    }
                 } else {
-                    $x = 0;
+                    return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x = 6)']);
                 }
-
-                $dataY = str_contains($chat, 'y');
-                if ($dataY == true) {
-                    $y = 1;
-                } else {
-                    $y = 0;
-                }
-
-                $calculator = Calculator::create([
-                    'chat' => $chat,
-                    'first_number' => $x,
-                    'last_number' => $y,
-                ]);
-                $id = $calculator->id;
-
-                return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of linear calculation']);
 
             } else {
                 if ($jumlahBilangan > 2) {
                     return redirect()->route('dashboard')->with(['error' => 'Only for Calculations Between 2 Numbers!']);
 
                 } else {
-
-                    preg_match_all('!\d+!', $chat, $matches);
-                    $jumlahBilangan = count($matches[0]);
-                    $angka1 = intval($matches[0][0]);
 
                     if (str_contains($chat, 'log')) {
                         if ($jumlahBilangan == 1) {
@@ -289,49 +353,54 @@ class CalculatorController extends Controller
                             return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
                         }
 
-                    // Operator Dasar + - * /
+                    // Kalkulator Operator Dasar + - * /
                     } else {
 
-                        $arrSplit = str_split($chat, 1);
-                        $jumKarakter = strlen($chat);
-                        $pattern = '/^[A-Za-z]+$/';
+                        if ($jumlahBilangan > 1) {
+                            $arrSplit = str_split($chat, 1);
+                            $jumKarakter = strlen($chat);
+                            $pattern = '/^[A-Za-z]+$/';
 
-                        $arrBaru = [];
-                        $operator = '';
-                        $arrAngka = [];
-                        $angka1 = 0;
-                        $angka2 = 0;
+                            $arrBaru = [];
+                            $operator = '';
+                            $arrAngka = [];
+                            $angka1 = 0;
+                            $angka2 = 0;
 
-                        for($i=0; $i < $jumKarakter; $i++) {
-                            if (preg_match('/[\*+-]/', $arrSplit[$i])) {
-                                $operator = $arrSplit[$i];
+                            for($i=0; $i < $jumKarakter; $i++) {
+                                if (preg_match('/[\*+-]/', $arrSplit[$i])) {
+                                    $operator = $arrSplit[$i];
+                                }
                             }
-                        }
 
-                        $angka2 = intval($matches[0][1]);
-                        $hasil = $angka1 .' '. $operator .' '. $angka2;
+                            $angka2 = intval($matches[0][1]);
+                            $hasil = $angka1 .' '. $operator .' '. $angka2;
 
-                        if ($operator == '+') {
-                            $hasil = $angka1 + $angka2;
-                        } else if ($operator == '-') {
-                            $hasil = $angka1 - $angka2;
-                        } else if ($operator == '*') {
-                            $hasil = $angka1 * $angka2;
-                        } else if ($operator == '/') {
-                            if ($angka2 != 0) {
-                                $hasil = $angka1 / $angka2;
-                            } else {
-                                $hasil = 'Division by zero is undefined';
+                            if ($operator == '+') {
+                                $hasil = $angka1 + $angka2;
+                            } else if ($operator == '-') {
+                                $hasil = $angka1 - $angka2;
+                            } else if ($operator == '*') {
+                                $hasil = $angka1 * $angka2;
+                            } else if ($operator == '/') {
+                                if ($angka2 != 0) {
+                                    $hasil = $angka1 / $angka2;
+                                } else {
+                                    $hasil = 'Division by zero is undefined';
+                                }
                             }
-                        }
 
-                        $calculator = Calculator::create([
-                            'chat' => $chat,
-                            'first_number' => $angka1,
-                            'last_number' => $angka2,
-                            'operator' => $operator,
-                            'result' => $hasil,
-                        ]);
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'last_number' => $angka2,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Your input is invalid']);
+                        }
 
                     }
                     $id = $calculator->id;

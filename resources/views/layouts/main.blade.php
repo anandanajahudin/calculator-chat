@@ -89,7 +89,7 @@
                 @yield('content')
 
                 <div class="py-6 px-6 text-center">
-                    <p class="mb-0 fs-4">Copyright &copy; 2023</p>
+                    <p class="mb-0 fs-4">Copyright of Calculator Chat &copy; 2023</p>
                 </div>
             </div>
         </div>
