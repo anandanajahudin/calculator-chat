@@ -91,17 +91,50 @@ class CalculatorController extends Controller
                 if ($jumlahBilangan == 2) {
 
                     $angka2 = intval($matches[0][1]);
-                    $result = pow($angka1, $angka2);
 
-                    $calculator = Calculator::create([
-                        'chat' => $chat,
-                        'first_number' => $angka1,
-                        'last_number' => $angka2,
-                        'result' => $result,
-                    ]);
-                    $id = $calculator->id;
+                    if (str_contains($chat, '+')) {
+                        $perpotonganSumbuY = ($angka1 * -1);
 
-                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation between two variables x and y']);
+                        if ($angka2 % $angka1 == 0 && $angka1 % $angka1 == 0) {
+                            $angka1 = $angka1 / $angka1;
+                            $angka2 = $angka2 / $angka1;
+                        }
+
+                        $result = pow($angka1, $angka2);
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $angka2,
+                            'last_number' => $perpotonganSumbuY,
+                            'result' => $result,
+                        ]);
+                        $id = $calculator->id;
+
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation between two variables x and y']);
+
+                    } else if (str_contains($chat, '-')) {
+
+                        if ($angka2 % $angka1 == 0 && $angka1 % $angka1 == 0) {
+                            $angka1 = $angka1 / $angka1;
+                            $angka2 = $angka2 / $angka1;
+                        }
+
+                        $result = pow($angka1, $angka2);
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $angka2,
+                            'last_number' => $angka1,
+                            'result' => $result,
+                        ]);
+                        $id = $calculator->id;
+
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation between two variables x and y']);
+
+                    } else {
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation between two variables x and y']);
+
+                    }
 
                 } else {
                     return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x + 6y)']);

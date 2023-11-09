@@ -53,9 +53,9 @@
                                 @if ($first_number != null && $last_number != null)
                                     x = {{ $first_number }} | y = {{ $last_number }}
                                 @elseif ($first_number != null)
-                                    x = {{ $first_number }}
+                                    x = {{ $result }}
                                 @else
-                                    y = {{ $last_number }}
+                                    y = {{ $result }}
                                 @endif
                             @else
                                 {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
@@ -90,18 +90,14 @@
                 datasets: [{
                     label: "Test",
                     data: [{
-                        x: 0,
-                        y: 5
-                    }, {
-                        x: 5,
-                        y: 10
-                    }, {
-                        x: 8,
-                        y: 5
-                    }, {
-                        x: 15,
-                        y: 0
-                    }],
+                            x: 0,
+                            y: 0
+                        },
+                        {
+                            x: {{ $first_number }},
+                            y: {{ $last_number }}
+                        }
+                    ],
                 }]
             },
             options: {
