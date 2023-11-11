@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/png" href="{{ asset('icon-strategy.jpg') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 </head>
@@ -21,7 +21,8 @@
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a href="{{ route('dashboard') }}" class="text-nowrap logo-img">
-                        <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" />
+                        <h3>Strategy</h3>
+                        {{-- <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180" alt="" /> --}}
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -88,9 +89,6 @@
             <div class="container-fluid">
                 @yield('content')
 
-                <div class="py-6 px-6 text-center">
-                    <p class="mb-0 fs-4">Copyright of Calculator Chat &copy; 2023</p>
-                </div>
             </div>
         </div>
     </div>

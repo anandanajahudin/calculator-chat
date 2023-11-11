@@ -30,8 +30,6 @@
 
         @yield('content')
 
-        @include('layouts.components.front.footer')
-
     </div> <!-- .site-wrap -->
 
     <script src="{{ asset('front/js/jquery-3.3.1.min.js') }}"></script>
@@ -60,7 +58,7 @@
     <script src="{{ asset('front/js/typed.js') }}"></script>
     <script>
         var typed = new Typed('.typed-words', {
-            strings: ["Web Apps", " WordPress", " Mobile Apps"],
+            strings: [" Anything", " Trigonometry", " Algebraic Equations"],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,
@@ -71,8 +69,6 @@
     </script>
 
     <script src="{{ asset('front/js/main.js') }}"></script>
-
-
 
 </body>
 

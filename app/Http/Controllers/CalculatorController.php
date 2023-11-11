@@ -201,7 +201,7 @@ class CalculatorController extends Controller
 
             } else if (str_contains($chat, 'y') && str_contains($chat, '=')) {
 
-                // Persamaan Linier 1 variabel x, Example (2x = 6)
+                // Persamaan Linier 1 variabel y, Example (2y = 6)
                 if ($jumlahBilangan == 2) {
 
                     $angka2 = intval($matches[0][1]);

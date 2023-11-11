@@ -21,14 +21,6 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a class="sidebar-link" href="{{ route('calculator.index') }}" aria-expanded="false">
-                <span>
-                    <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Calculator</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
             <a class="sidebar-link" href="{{ route('operation.index') }}" aria-expanded="false">
                 <span>
                     <i class="ti ti-pencil"></i>

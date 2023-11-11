@@ -10,9 +10,8 @@
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
                     <div>
-                        <h3>Web Design</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae
-                            eligendi at.</p>
+                        <h3>No Hardware Required</h3>
+                        <p>No need to purchase anything from Texas Instruments. Only browser is required.</p>
                         <p><a href="#">Learn More</a></p>
                     </div>
                 </div>
@@ -21,9 +20,8 @@
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><span class="text-primary icon-shopping_cart"></span></div>
                     <div>
-                        <h3>eCommerce</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae
-                            eligendi at.</p>
+                        <h3>Convenient Pricing</h3>
+                        <p>Affordable and reasonable prices. Pay as you use.</p>
                         <p><a href="#">Learn More</a></p>
                     </div>
                 </div>
@@ -32,9 +30,8 @@
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><span class="text-primary icon-question_answer"></span></div>
                     <div>
-                        <h3>Web Applications</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae
-                            eligendi at.</p>
+                        <h3>Convenient Design</h3>
+                        <p>Designed like ChatGPT. No more hassles with LaTex.</p>
                         <p><a href="#">Learn More</a></p>
                     </div>
                 </div>
@@ -45,9 +42,8 @@
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><span class="text-primary icon-format_paint"></span></div>
                     <div>
-                        <h3>Branding</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae
-                            eligendi at.</p>
+                        <h3>Built-in Grapher</h3>
+                        <p>Equations can be plotted in graphs and exported to an outside application.</p>
                         <p><a href="#">Learn More</a></p>
                     </div>
                 </div>
@@ -56,9 +52,8 @@
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><span class="text-primary icon-extension"></span></div>
                     <div>
-                        <h3>Copy Writing</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae
-                            eligendi at.</p>
+                        <h3>Learn On The Go</h3>
+                        <p>All solutions and workings available for every problem you input.</p>
                         <p><a href="#">Learn More</a></p>
                     </div>
                 </div>
@@ -67,9 +62,8 @@
                 <div class="unit-4 d-flex">
                     <div class="unit-4-icon mr-4"><span class="text-primary icon-phonelink"></span></div>
                     <div>
-                        <h3>Mobile Applications</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae
-                            eligendi at.</p>
+                        <h3>Mobile Friendly</h3>
+                        <p>Works on mobile too without breaking any functionality.</p>
                         <p><a href="#">Learn More</a></p>
                     </div>
                 </div>

@@ -6,7 +6,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+            <div class="col-lg-12">
+                <h5 class="text-center">No team members yet. Nothing to see here.</h5>
+            </div>
+            {{-- <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                 <div class="person text-center bg-white p-4">
                     <img src="{{ asset('front/images/person_2.jpg') }}" alt="Image"
                         class="img-fluid rounded-circle mb-3">
@@ -56,7 +59,7 @@
                         <li><a href="#"><span class="icon-instagram"></span></a></li>
                     </ul>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

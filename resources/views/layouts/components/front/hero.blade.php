@@ -7,10 +7,9 @@
 
                 <div class="row justify-content-center mb-4">
                     <div class="col-md-10 text-center">
-                        <h1>We Love To Build <span class="typed-words"></span></h1>
+                        <h1>Calculate <span class="typed-words"></span></h1>
                         <p class="lead mb-5">
-                            A free bootstrap template from the fine folks at
-                            <a href="#">Untree.co</a>
+                        <h5>Try it in the app now!</h5>
                         </p>
                     </div>
                 </div>

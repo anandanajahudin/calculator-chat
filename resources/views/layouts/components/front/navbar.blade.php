@@ -13,7 +13,6 @@
 
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                         <li><a href="#home-section" class="nav-link">Home</a></li>
-                        <li><a href="#work-section" class="nav-link">Work</a></li>
                         <li>
                             <a href="#services-section" class="nav-link">Services</a>
                         </li>
@@ -24,7 +23,6 @@
                                 <li><a href="#team-section">Our Team</a></li>
                             </ul>
                         </li>
-                        <li><a href="#blog-section" class="nav-link">Blog</a></li>
                         <li><a href="#contact-section" class="nav-link">Contact</a></li>
                         @guest
                             <li><a href="{{ route('login') }}" class="nav-link">Login</a></li>
