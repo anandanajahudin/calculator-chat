@@ -72,7 +72,13 @@
 
                 @if ($operator == null)
                     <div class="col-lg-12">
-                        <canvas id="myChart1"></canvas>
+                        @if ($first_number != null && $last_number == null)
+                            <canvas id="myChart2"></canvas>
+                        @elseif ($first_number == null && $last_number != null)
+                            <canvas id="myChart3"></canvas>
+                        @else
+                            <canvas id="myChart1"></canvas>
+                        @endif
                     </div>
                 @endif
             </div>
@@ -95,6 +101,54 @@
                         },
                         {
                             x: {{ $first_number }},
+                            y: {{ $last_number }}
+                        }
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Persamaan linier 1 variabel x --}}
+    <script type="text/javascript">
+        var grafik = new Chart(document.getElementById("myChart2"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Test",
+                    data: [{
+                            x: {{ $first_number }},
+                            y: 0
+                        },
+                        {
+                            x: {{ $first_number }},
+                            y: 1
+                        }
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Persamaan linier 1 variabel y --}}
+    <script type="text/javascript">
+        var grafik = new Chart(document.getElementById("myChart3"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Test",
+                    data: [{
+                            x: 0,
+                            y: {{ $last_number }}
+                        },
+                        {
+                            x: 1,
                             y: {{ $last_number }}
                         }
                     ],

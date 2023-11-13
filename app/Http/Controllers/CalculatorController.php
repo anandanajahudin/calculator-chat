@@ -142,8 +142,22 @@ class CalculatorController extends Controller
 
             } else if (str_contains($chat, 'x') && str_contains($chat, '=')) {
 
+                // Persamaan Linier 1 variabel x, Example (x = 6)
+                if ($jumlahBilangan == 1) {
+                    // $y1 = 0;
+                    // $y2 = 1;
+
+                    $calculator = Calculator::create([
+                        'chat' => $chat,
+                        'first_number' => $angka1,
+                        'result' => $angka1,
+                    ]);
+                    $id = $calculator->id;
+
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable x']);
+
                 // Persamaan Linier 1 variabel x, Example (2x = 6)
-                if ($jumlahBilangan == 2) {
+                } else if ($jumlahBilangan == 2) {
 
                     $angka2 = intval($matches[0][1]);
                     $result = $angka2 / $angka1;
@@ -153,7 +167,6 @@ class CalculatorController extends Controller
                         'first_number' => $angka1,
                         'result' => $result,
                     ]);
-
                     $id = $calculator->id;
 
                     return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable x']);
@@ -201,8 +214,19 @@ class CalculatorController extends Controller
 
             } else if (str_contains($chat, 'y') && str_contains($chat, '=')) {
 
+                // Persamaan Linier 1 variabel y, Example (y = 6)
+                if ($jumlahBilangan == 1) {
+                    $calculator = Calculator::create([
+                        'chat' => $chat,
+                        'last_number' => $angka1,
+                        'result' => $angka1,
+                    ]);
+                    $id = $calculator->id;
+
+                    return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable x']);
+
                 // Persamaan Linier 1 variabel y, Example (2y = 6)
-                if ($jumlahBilangan == 2) {
+                } else if ($jumlahBilangan == 2) {
 
                     $angka2 = intval($matches[0][1]);
                     $result = $angka2 / $angka1;
@@ -212,7 +236,6 @@ class CalculatorController extends Controller
                         'last_number' => $angka1,
                         'result' => $result,
                     ]);
-
                     $id = $calculator->id;
 
                     return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable y']);
@@ -232,7 +255,6 @@ class CalculatorController extends Controller
                             'last_number' => $angka1,
                             'result' => $result,
                         ]);
-
                         $id = $calculator->id;
 
                         return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable y']);
@@ -246,7 +268,6 @@ class CalculatorController extends Controller
                             'last_number' => $angka1,
                             'result' => $result,
                         ]);
-
                         $id = $calculator->id;
 
                         return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation one variable y']);
