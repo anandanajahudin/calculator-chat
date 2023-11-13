@@ -286,6 +286,7 @@ class CalculatorController extends Controller
                 } else {
 
                     if (str_contains($chat, 'log')) {
+
                         if ($jumlahBilangan == 1) {
                             $hasil = log($angka1);
                             $operator = "log";
@@ -296,8 +297,35 @@ class CalculatorController extends Controller
                                 'operator' => $operator,
                                 'result' => $hasil,
                             ]);
+
+                        } else if ($jumlahBilangan == 2) {
+                            $angka2 = intval($matches[0][1]);
+
+                            if ($angka1 == 10) {
+                                $hasil = log10($angka2);
+                                $operator = "log10";
+
+                                $calculator = Calculator::create([
+                                    'chat' => $chat,
+                                    'first_number' => $angka2,
+                                    'operator' => $operator,
+                                    'result' => $hasil,
+                                ]);
+
+                            } else {
+                                $hasil = log($angka1, $angka2);
+                                $operator = "log";
+
+                                $calculator = Calculator::create([
+                                    'chat' => $chat,
+                                    'first_number' => $angka1,
+                                    'operator' => $operator,
+                                    'result' => $hasil,
+                                ]);
+                            }
+
                         } else {
-                            return redirect()->route('dashboard')->with(['error' => 'Logarithm Only for 1 Number!']);
+                            return redirect()->route('dashboard')->with(['error' => 'Your input for logarithm is not correct!']);
                         }
 
                     } else if (str_contains($chat, '!')) {
