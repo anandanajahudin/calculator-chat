@@ -76,6 +76,8 @@
                             <canvas id="myChart2"></canvas>
                         @elseif ($first_number == null && $last_number != null)
                             <canvas id="myChart3"></canvas>
+                        @elseif ($first_number != null && $last_number != null && $result == null)
+                            <canvas id="myChart4"></canvas>
                         @else
                             <canvas id="myChart1"></canvas>
                         @endif
@@ -91,7 +93,7 @@
 
     <script type="text/javascript">
         var x = new Chart(document.getElementById("myChart1"), {
-            type: 'scatter',
+            type: 'line',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -118,7 +120,7 @@
     {{-- Persamaan linier 1 variabel x --}}
     <script type="text/javascript">
         var grafik = new Chart(document.getElementById("myChart2"), {
-            type: 'scatter',
+            type: 'line',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -145,7 +147,7 @@
     {{-- Persamaan linier 1 variabel y --}}
     <script type="text/javascript">
         var grafik = new Chart(document.getElementById("myChart3"), {
-            type: 'scatter',
+            type: 'line',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -159,6 +161,33 @@
                         {
                             x: 1,
                             y: {{ $last_number }}
+                        }
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Persamaan linear 2 variabel x dan y, contoh: 2x + 3y = 7 --}}
+    <script type="text/javascript">
+        var x = new Chart(document.getElementById("myChart4"), {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Graph",
+                    fill: false,
+                    pointRadius: 1,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: [{
+                            x: 0,
+                            y: {{ $last_number }}
+                        },
+                        {
+                            x: {{ $first_number }},
+                            y: 0
                         }
                     ],
                 }]

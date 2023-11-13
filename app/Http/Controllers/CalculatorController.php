@@ -136,6 +136,33 @@ class CalculatorController extends Controller
 
                     }
 
+                } else if ($jumlahBilangan == 3) {
+
+                    // Persamaan linier 2 variabel x dan y serta = bilangan
+                    if (str_contains($chat, 'x') && str_contains($chat, 'y') && str_contains($chat, '=')) {
+
+                        $angka2 = intval($matches[0][1]);
+                        $angka3 = intval($matches[0][2]);
+                        $nilaiX = floatval($angka3 / $angka1);
+
+                        if (str_contains($chat, '-')) {
+                            $nilaiY = floatval($angka3 / $angka2) * (-1);
+                        } else {
+                            $nilaiY = floatval($angka3 / $angka2);
+                        }
+
+                        $calculator = Calculator::create([
+                            'chat' => $chat,
+                            'first_number' => $nilaiX,
+                            'last_number' => $nilaiY,
+                        ]);
+                        $id = $calculator->id;
+
+                        return redirect()->route('calculator.show', [$id])->with(['success' => 'The result of a linear equation has been solved']);
+
+                    } else {
+                        return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x + 3y = 7)']);
+                    }
                 } else {
                     return redirect()->route('dashboard')->with(['error' => 'Equation is Invalid! (For Example: 2x + 6y)']);
                 }
@@ -144,8 +171,6 @@ class CalculatorController extends Controller
 
                 // Persamaan Linier 1 variabel x, Example (x = 6)
                 if ($jumlahBilangan == 1) {
-                    // $y1 = 0;
-                    // $y2 = 1;
 
                     $calculator = Calculator::create([
                         'chat' => $chat,
