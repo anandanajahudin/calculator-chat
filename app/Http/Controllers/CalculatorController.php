@@ -521,7 +521,7 @@ class CalculatorController extends Controller
                             $arrAngka = [];
 
                             for($i=0; $i < $jumKarakter; $i++) {
-                                if (preg_match('/[\*+-]/', $arrSplit[$i])) {
+                                if (preg_match('/[\*+-\/]/', $arrSplit[$i])) {
                                     $operator = $arrSplit[$i];
                                 }
                             }

@@ -93,7 +93,7 @@
 
     <script type="text/javascript">
         var x = new Chart(document.getElementById("myChart1"), {
-            type: 'line',
+            type: 'scatter',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -120,7 +120,7 @@
     {{-- Persamaan linier 1 variabel x --}}
     <script type="text/javascript">
         var grafik = new Chart(document.getElementById("myChart2"), {
-            type: 'line',
+            type: 'scatter',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -147,7 +147,7 @@
     {{-- Persamaan linier 1 variabel y --}}
     <script type="text/javascript">
         var grafik = new Chart(document.getElementById("myChart3"), {
-            type: 'line',
+            type: 'scatter',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -174,7 +174,7 @@
     {{-- Persamaan linear 2 variabel x dan y, contoh: 2x + 3y = 7 --}}
     <script type="text/javascript">
         var x = new Chart(document.getElementById("myChart4"), {
-            type: 'line',
+            type: 'scatter',
             data: {
                 datasets: [{
                     label: "Graph",
@@ -199,38 +199,38 @@
     </script>
 
     <script type="text/javascript">
-        const xValues = [];
-        const yValues = [];
-        generateData("x * 2 + 7", 0, 10, 0.5);
+        // const xValues = [];
+        // const yValues = [];
+        // generateData("x * 2 + 7", 0, 10, 0.5);
 
-        new Chart("myChart", {
-            type: "line",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    fill: false,
-                    pointRadius: 1,
-                    borderColor: "rgba(255,0,0,0.5)",
-                    data: yValues
-                }]
-            },
-            options: {
-                legend: {
-                    display: false
-                },
-                title: {
-                    display: true,
-                    text: "y = x * 2 + 7",
-                    fontSize: 16
-                }
-            }
-        });
+        // new Chart("myChart", {
+        //     type: "line",
+        //     data: {
+        //         labels: xValues,
+        //         datasets: [{
+        //             fill: false,
+        //             pointRadius: 1,
+        //             borderColor: "rgba(255,0,0,0.5)",
+        //             data: yValues
+        //         }]
+        //     },
+        //     options: {
+        //         legend: {
+        //             display: false
+        //         },
+        //         title: {
+        //             display: true,
+        //             text: "y = x * 2 + 7",
+        //             fontSize: 16
+        //         }
+        //     }
+        // });
 
-        function generateData(value, i1, i2, step = 1) {
-            for (let x = i1; x <= i2; x += step) {
-                yValues.push(eval(value));
-                xValues.push(x);
-            }
-        }
+        // function generateData(value, i1, i2, step = 1) {
+        //     for (let x = i1; x <= i2; x += step) {
+        //         yValues.push(eval(value));
+        //         xValues.push(x);
+        //     }
+        // }
     </script>
 @endpush
