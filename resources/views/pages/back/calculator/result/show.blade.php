@@ -42,29 +42,38 @@
                     $result = $calculator->result;
                 @endphp
 
-                <div class="col-lg-3">The solve about this math is : </div>
-                <div class="col-lg-9">
-                    <p>
 
-                        @if ($operator != '*' && $operator != '/' && $operator != '+' && $operator != '-' && $operator != '%')
-                            @if ($operator == '!')
-                                {{ $first_number . '' . $operator . ' = ' . $result }}
-                            @elseif ($operator == null)
-                                @if ($first_number != null && $last_number != null)
-                                    x = {{ $first_number }} | y = {{ $last_number }}
-                                @elseif ($first_number != null)
-                                    x = {{ $result }}
+                @if (
+                    $calculator->chat == 'graph log x' ||
+                        $calculator->chat == 'graph log y' ||
+                        $calculator->chat == 'graph sin x' ||
+                        $calculator->chat == 'graph sin y' ||
+                        $calculator->chat == 'graph cos x' ||
+                        $calculator->chat == 'graph cos y')
+                @else
+                    <div class="col-lg-3">The solve about this math is : </div>
+                    <div class="col-lg-9">
+                        <p>
+                            @if ($operator != '*' && $operator != '/' && $operator != '+' && $operator != '-' && $operator != '%')
+                                @if ($operator == '!')
+                                    {{ $first_number . '' . $operator . ' = ' . $result }}
+                                @elseif ($operator == null)
+                                    @if ($first_number != null && $last_number != null)
+                                        x = {{ $first_number }} | y = {{ $last_number }}
+                                    @elseif ($first_number != null)
+                                        x = {{ $result }}
+                                    @else
+                                        y = {{ $result }}
+                                    @endif
                                 @else
-                                    y = {{ $result }}
+                                    {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
                                 @endif
                             @else
-                                {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
+                                {{ $first_number . ' ' . $operator . ' ' . $last_number . ' = ' . $result }}
                             @endif
-                        @else
-                            {{ $first_number . ' ' . $operator . ' ' . $last_number . ' = ' . $result }}
-                        @endif
-                    </p>
-                </div>
+                        </p>
+                    </div>
+                @endif
 
                 <div class="col-lg-12">
                     <p><b>result = {{ $result }}</b></p>
@@ -72,15 +81,26 @@
 
                 @if ($operator == null)
                     <div class="col-lg-12">
-                        @if ($first_number != null && $last_number == null)
-                            <canvas id="myChart2"></canvas>
-                        @elseif ($first_number == null && $last_number != null)
-                            <canvas id="myChart3"></canvas>
-                        @elseif ($first_number != null && $last_number != null && $result == null)
-                            <canvas id="myChart4"></canvas>
+                        @if ($calculator->chat == 'graph log x')
+                            <canvas id="myChart5"></canvas>
+                        @elseif ($calculator->chat == 'graph log y')
+                            <canvas id="myChart6"></canvas>
+                        @elseif ($calculator->chat == 'graph sin x')
+                            <canvas id="myChart7"></canvas>
+                        @elseif ($calculator->chat == 'graph cos x')
+                            <canvas id="myChart8"></canvas>
                         @else
-                            <canvas id="myChart1"></canvas>
+                            @if ($first_number != null && $last_number == null)
+                                <canvas id="myChart2"></canvas>
+                            @elseif ($first_number == null && $last_number != null)
+                                <canvas id="myChart3"></canvas>
+                            @elseif ($first_number != null && $last_number != null && $result == null)
+                                <canvas id="myChart4"></canvas>
+                            @else
+                                <canvas id="myChart1"></canvas>
+                            @endif
                         @endif
+
                     </div>
                 @endif
             </div>
@@ -189,6 +209,146 @@
                             x: {{ $first_number }},
                             y: 0
                         }
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Grafik log x --}}
+    <script type="text/javascript">
+        var x = new Chart(document.getElementById("myChart5"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Graph",
+                    fill: false,
+                    pointRadius: 1,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: [{
+                            x: 1,
+                            y: 0
+                        },
+                        {
+                            x: 2,
+                            y: 0.301
+                        },
+                        {
+                            x: 10,
+                            y: 1
+                        },
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Grafik log y --}}
+    <script type="text/javascript">
+        var x = new Chart(document.getElementById("myChart6"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Graph",
+                    fill: false,
+                    pointRadius: 1,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: [{
+                            x: 1,
+                            y: 10
+                        },
+                        {
+                            x: 2,
+                            y: 100
+                        },
+                        {
+                            x: 3,
+                            y: 1000
+                        },
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Grafik sin x --}}
+    <script type="text/javascript">
+        var x = new Chart(document.getElementById("myChart7"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Graph",
+                    fill: false,
+                    pointRadius: 1,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: [{
+                            x: 0,
+                            y: 0
+                        },
+                        {
+                            x: {{ pi() / 2 }},
+                            y: 1
+                        },
+                        {
+                            x: {{ pi() }},
+                            y: 0
+                        },
+                        {
+                            x: {{ (3 * pi()) / 2 }},
+                            y: -1
+                        },
+                        {
+                            x: {{ 2 * pi() }},
+                            y: 0
+                        },
+                    ],
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+
+    {{-- Grafik cos x --}}
+    <script type="text/javascript">
+        var x = new Chart(document.getElementById("myChart8"), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: "Graph",
+                    fill: false,
+                    pointRadius: 1,
+                    borderColor: "rgba(255,0,0,0.5)",
+                    data: [{
+                            x: 0,
+                            y: 1
+                        },
+                        {
+                            x: {{ pi() / 2 }},
+                            y: 0
+                        },
+                        {
+                            x: {{ pi() }},
+                            y: -1
+                        },
+                        {
+                            x: {{ (3 * pi()) / 2 }},
+                            y: 0
+                        },
+                        {
+                            x: {{ 2 * pi() }},
+                            y: 1
+                        },
                     ],
                 }]
             },
