@@ -6,6 +6,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\OperationController;
+use App\Http\Controllers\PythonController;
 
 // Company Profile
 Route::get('/', [LandingController::class, 'index'])->name('index');
@@ -38,4 +39,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
     // Library
     Route::get('/operation', [OperationController::class, 'index'])->name('operation.index');
+
+    // Python
+    Route::get('/generate-graph', [PythonController::class, 'generateGraph'])->name('generateGraph');
 });

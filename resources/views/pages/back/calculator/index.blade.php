@@ -21,6 +21,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+
+            <p></p>
+            <a href="{{ route('runPython') }}" class="btn btn-success">Run Python</a>
         </div>
     </div>
 @endsection
