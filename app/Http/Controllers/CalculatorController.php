@@ -85,6 +85,7 @@ class CalculatorController extends Controller
             $jumlahBilangan = count($matches[0]);
 
             if ($jumlahBilangan < 1) {
+                // Log Grafik
                 if (str_contains($chat, 'log')) {
 
                     if (str_contains($chat, 'graph')) {
@@ -112,6 +113,7 @@ class CalculatorController extends Controller
                         return redirect()->route('dashboard')->with(['error' => 'Your input is not valid!']);
                     }
 
+                // Sin Grafik
                 } else if (str_contains($chat, 'sin')) {
 
                     if (str_contains($chat, 'graph')) {
@@ -133,6 +135,7 @@ class CalculatorController extends Controller
 
                 } else if (str_contains($chat, 'cos')) {
 
+                    // Cos Grafik
                     if (str_contains($chat, 'graph')) {
                         if (str_contains($chat, 'graph') && str_contains($chat, 'cos') && str_contains($chat, 'x')) {
                             $calculator = Calculator::create([
@@ -379,6 +382,7 @@ class CalculatorController extends Controller
                         return redirect()->route('dashboard')->with(['error' => 'Only for Calculations Between 2 Numbers!']);
 
                     } else {
+                        // Log
                         if (str_contains($chat, 'log')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = log($angka1);
@@ -391,6 +395,7 @@ class CalculatorController extends Controller
                                     'result' => $hasil,
                                 ]);
 
+                            // Log 10
                             } else if ($jumlahBilangan == 2) {
                                 $angka2 = intval($matches[0][1]);
 
@@ -420,6 +425,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Your input for logarithm is not correct!']);
                             }
 
+                        // Factorial
                         } else if (str_contains($chat, '!')) {
                             if ($jumlahBilangan == 1) {
                                 $factorial = 1;
@@ -440,6 +446,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Factorial Only for 1 Number!']);
                             }
 
+                        // Sin
                         } else if (str_contains($chat, 'sin')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = sin($angka1);
@@ -455,6 +462,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Sine Only for 1 Number!']);
                             }
 
+                        // Cos
                         } else if (str_contains($chat, 'cos')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = cos($angka1);
@@ -470,6 +478,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Cosine Only for 1 Number!']);
                             }
 
+                        // Tan
                         } else if (str_contains($chat, 'tan')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = tan($angka1);
@@ -485,6 +494,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Tangent Only for 1 Number!']);
                             }
 
+                        // Cotan
                         } else if (str_contains($chat, 'cot')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = cot($angka1);
@@ -500,6 +510,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Cotangent Only for 1 Number!']);
                             }
 
+                        // Sec
                         } else if (str_contains($chat, 'sec')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = sec($angka1);
@@ -515,6 +526,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Secant Only for 1 Number!']);
                             }
 
+                        // Cosec
                         } else if (str_contains($chat, 'cosec')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = cosec($angka1);
@@ -530,6 +542,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Cosecant Only for 1 Number!']);
                             }
 
+                        // Arcsin
                         } else if (str_contains($chat, 'arcsin')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = arcsin($angka1);
@@ -545,6 +558,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Inverse Since Only for 1 Number!']);
                             }
 
+                        // Arccos
                         } else if (str_contains($chat, 'arccos')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = arccos($angka1);
@@ -560,6 +574,7 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Inverse Cosine Only for 1 Number!']);
                             }
 
+                        // Arctan
                         } else if (str_contains($chat, 'arctan')) {
                             if ($jumlahBilangan == 1) {
                                 $hasil = arctan($angka1);
@@ -573,6 +588,22 @@ class CalculatorController extends Controller
                                 ]);
                             } else {
                                 return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
+                            }
+
+                        // Radian
+                        } else if (str_contains($chat, 'rad') || str_contains($chat, 'radian')) {
+                            if ($jumlahBilangan == 1) {
+                                $hasil = deg2rad($angka1);
+                                $operator = "radian";
+
+                                $calculator = Calculator::create([
+                                    'chat' => $chat,
+                                    'first_number' => $angka1,
+                                    'operator' => $operator,
+                                    'result' => $hasil,
+                                ]);
+                            } else {
+                                return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);
                             }
 
                         // Kalkulator Operator Dasar + - * /
@@ -595,12 +626,20 @@ class CalculatorController extends Controller
 
                                 $angka2 = intval($matches[0][1]);
                                 // $hasil = $angka1 .' '. $operator .' '. $angka2;
+
+                                // Penjumlahan
                                 if ($operator == '+') {
                                     $hasil = $angka1 + $angka2;
+
+                                // Pengurangan
                                 } else if ($operator == '-') {
                                     $hasil = $angka1 - $angka2;
+
+                                // Perkalian
                                 } else if ($operator == '*') {
                                     $hasil = $angka1 * $angka2;
+
+                                // Pembagian
                                 } else if ($operator == '/') {
                                     if ($angka2 != 0) {
                                         $hasil = $angka1 / $angka2;
