@@ -590,6 +590,24 @@ class CalculatorController extends Controller
                                 return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
                             }
 
+                        // Degree
+                        } else if (str_contains($chat, 'degree')) {
+                            $angka1 = $matches[0][0];
+
+                            if ($jumlahBilangan == 1) {
+                                $hasil = rad2deg($angka1);
+                                $operator = "degree";
+
+                                $calculator = Calculator::create([
+                                    'chat' => $chat,
+                                    'first_number' => $angka1,
+                                    'operator' => $operator,
+                                    'result' => $hasil,
+                                ]);
+                            } else {
+                                return redirect()->route('dashboard')->with(['error' => 'Your input is invalid, only for integer value!']);
+                            }
+
                         // Radian
                         } else if (str_contains($chat, 'rad') || str_contains($chat, 'radian')) {
                             if ($jumlahBilangan == 1) {
