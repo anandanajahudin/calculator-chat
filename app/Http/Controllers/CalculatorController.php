@@ -80,6 +80,10 @@ class CalculatorController extends Controller
 
             return redirect()->route('calculator.history', [$id])->with(['success' => 'The result history of your calculations!']);
 
+        } else if (str_contains($chat, 'sigma')) {
+
+            return redirect()->route('sigma.index');
+
         } else {
             preg_match_all('!\d+!', $chat, $matches);
             $jumlahBilangan = count($matches[0]);
@@ -589,6 +593,27 @@ class CalculatorController extends Controller
                             } else {
                                 return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
                             }
+
+                            // Sigma
+                        } else if (str_contains($chat, 'sigma')) {
+
+                            return redirect()->route('sigma.index');
+
+                            // $angka2 = $matches[0][0];
+
+                            // if ($jumlahBilangan == 1) {
+                            //     $hasil = rad2deg($angka1);
+                            //     $operator = "degree";
+
+                            //     $calculator = Calculator::create([
+                            //         'chat' => $chat,
+                            //         'first_number' => $angka1,
+                            //         'operator' => $operator,
+                            //         'result' => $hasil,
+                            //     ]);
+                            // } else {
+                            //     return redirect()->route('dashboard')->with(['error' => 'Your input is invalid, only for integer value!']);
+                            // }
 
                         // Degree
                         } else if (str_contains($chat, 'degree')) {

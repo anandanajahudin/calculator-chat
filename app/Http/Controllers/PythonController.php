@@ -72,4 +72,17 @@ class PythonController extends Controller
         ]);
     }
 
+    public function getPassing(Request $request)
+    {
+        $valueToSend = "Hello from PHP";
+
+        // $scriptPath = base_path('resources/views/py/test.py');
+
+        // Use shell_exec to run a Python script with the value as a command-line argument
+        $output = shell_exec("python test.py " . escapeshellarg($valueToSend));
+
+        // Display the Python script's output (if any)
+        echo $output;
+    }
+
 }

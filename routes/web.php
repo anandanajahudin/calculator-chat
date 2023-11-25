@@ -39,7 +39,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/calculator/history/{id}', [CalculatorController::class, 'history'])->name('calculator.history');
 
     Route::get('/calculator/sigma', [SigmaController::class, 'index'])->name('sigma.index');
-    Route::post('/calculator/store', [SigmaController::class, 'store'])->name('sigma.store');
+    Route::post('/calculator/sigmaStore', [SigmaController::class, 'store'])->name('sigma.store');
     // Library
     Route::get('/operation', [OperationController::class, 'index'])->name('operation.index');
 
