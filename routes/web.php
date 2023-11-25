@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\OperationController;
 use App\Http\Controllers\PythonController;
+use App\Http\Controllers\SigmaController;
 
 // Company Profile
 Route::get('/', [LandingController::class, 'index'])->name('index');
@@ -37,6 +38,8 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/calculator/profile/{id}', [CalculatorController::class, 'profile'])->name('calculator.profile');
     Route::get('/calculator/history/{id}', [CalculatorController::class, 'history'])->name('calculator.history');
 
+    Route::get('/calculator/sigma', [SigmaController::class, 'index'])->name('sigma.index');
+    Route::post('/calculator/store', [SigmaController::class, 'store'])->name('sigma.store');
     // Library
     Route::get('/operation', [OperationController::class, 'index'])->name('operation.index');
 
