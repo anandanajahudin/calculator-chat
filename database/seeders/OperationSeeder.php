@@ -119,5 +119,17 @@ class OperationSeeder extends Seeder
             'description' => 'radian(45)',
             'created_at' => Carbon::now(),
         ]);
+        DB::table('operations')->insert([
+            'name' => 'Probability',
+            'operator' => 'probability',
+            'description' => 'probability(3, 6)',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Pythagorean Theorem',
+            'operator' => 'pythagorean',
+            'description' => 'pythagorean(5, 12)',
+            'created_at' => Carbon::now(),
+        ]);
     }
 }

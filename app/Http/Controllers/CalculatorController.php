@@ -675,6 +675,31 @@ class CalculatorController extends Controller
                             return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);
                         }
 
+                    // Pythagorean theorem
+                    } else if (str_contains($chat, 'pythagorean')) {
+
+                        if ($jumlahBilangan == 2) {
+
+                            // a = $angka1
+                            // b = $angka2
+                            $angka2 = intval($matches[0][1]);
+
+                            // Pythagorean c = sqrt(a + b)
+                            $hasil = sqrt(pow($angka1, 2) + pow($angka2, 2));
+
+                            $operator = "pythagorean";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'last_number' => $angka2,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);
+                        }
+
                     // Kalkulator Operator Dasar + - * /
                     } else {
 
