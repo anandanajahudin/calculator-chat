@@ -26,6 +26,10 @@ class CalculatorController extends Controller
         return view('pages.back.calculator.sigma');
     }
 
+    public function graph() {
+        return view('pages.back.calculator.graph');
+    }
+
     public function create()
     {
         $operations = Operation::all();
@@ -34,6 +38,7 @@ class CalculatorController extends Controller
             'operations' => $operations
         ]);
     }
+
 
     public function store(Request $request) {
 
