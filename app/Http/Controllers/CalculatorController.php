@@ -22,6 +22,10 @@ class CalculatorController extends Controller
         ]);
     }
 
+    public function sigma() {
+        return view('pages.back.calculator.sigma');
+    }
+
     public function create()
     {
         $operations = Operation::all();
@@ -82,7 +86,7 @@ class CalculatorController extends Controller
 
         } else if (str_contains($chat, 'sigma')) {
 
-            return redirect()->route('sigma.index');
+            return redirect()->route('calculator.sigma');
 
         } else {
             preg_match_all('!\d+!', $chat, $matches);

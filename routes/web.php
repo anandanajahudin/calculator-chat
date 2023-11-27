@@ -26,20 +26,23 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [LoginController::class, 'dashboard'])->name('dashboard');
 
-    // Calculator
-    Route::get('/calculator', [CalculatorController::class, 'index'])->name('calculator.index');
-    Route::get('/calculator/create', [CalculatorController::class, 'create'])->name('calculator.create');
-    Route::post('/calculator/store', [CalculatorController::class, 'store'])->name('calculator.store');
+    Route::controller(CalculatorController::class)->group(function() {
+        // Calculator
+        Route::get('/calculator', 'index')->name('calculator.index');
+        Route::get('/calculator/create', 'create')->name('calculator.create');
+        Route::post('/calculator/store', 'store')->name('calculator.store');
 
-    // Calculator Result
-    Route::get('/calculator/show/{id}', [CalculatorController::class, 'show'])->name('calculator.show');
-    Route::get('/calculator/about/{id}', [CalculatorController::class, 'about'])->name('calculator.about');
-    Route::get('/calculator/help/{id}', [CalculatorController::class, 'help'])->name('calculator.help');
-    Route::get('/calculator/profile/{id}', [CalculatorController::class, 'profile'])->name('calculator.profile');
-    Route::get('/calculator/history/{id}', [CalculatorController::class, 'history'])->name('calculator.history');
+        // Calculator Result
+        Route::get('/calculator/show/{id}', 'show')->name('calculator.show');
+        Route::get('/calculator/about/{id}', 'about')->name('calculator.about');
+        Route::get('/calculator/help/{id}', 'help')->name('calculator.help');
+        Route::get('/calculator/profile/{id}', 'profile')->name('calculator.profile');
+        Route::get('/calculator/history/{id}', 'history')->name('calculator.history');
 
-    Route::get('/calculator/sigma', [SigmaController::class, 'index'])->name('sigma.index');
-    Route::post('/calculator/sigmaStore', [SigmaController::class, 'store'])->name('sigma.store');
+        Route::get('/calculator/sigma', 'sigma')->name('calculator.sigma');
+        Route::post('/calculator/sigmaStore', 'store')->name('calculator.sigmaStore');
+    });
+
     // Library
     Route::get('/operation', [OperationController::class, 'index'])->name('operation.index');
 

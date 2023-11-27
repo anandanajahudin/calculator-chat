@@ -19,19 +19,19 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('sigma.store') }}" method="POST">
+            <form action="{{ route('calculator.sigmaStore') }}" method="POST">
                 @csrf
                 <h5 class="card-title fw-semibold mb-4">Sigma Calculator</h5>
                 <hr>
                 <div class="js"></div>
-        </div>
 
-        <script src="{{ asset('assets/js/sigma.js') }}"></script>
-        <input type="text" hidden class="form-control" name="hasil" id="hasil" required>
+                <script src="{{ asset('assets/js/sigma.js') }}"></script>
+                <input type="text" hidden class="form-control" name="hasil" id="hasil" required>
 
-        <div class="mt-3">
-            <button type="submit" class="btn btn-success">Save Sigma</button>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-success">Save Sigma</button>
+                </div>
+            </form>
         </div>
-        </form>
     </div>
 @endsection
