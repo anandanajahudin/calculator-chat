@@ -101,5 +101,23 @@ class OperationSeeder extends Seeder
             'description' => 'arctan(2) = 2',
             'created_at' => Carbon::now(),
         ]);
+        DB::table('operations')->insert([
+            'name' => 'Sigma',
+            'operator' => 'sigma',
+            'description' => 'sigma',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Degree',
+            'operator' => 'degree',
+            'description' => 'degree(2)',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Radian',
+            'operator' => 'radian',
+            'description' => 'radian(45)',
+            'created_at' => Carbon::now(),
+        ]);
     }
 }
