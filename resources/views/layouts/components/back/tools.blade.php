@@ -27,7 +27,7 @@
                         <td><i class="pad-toolbar-greeklg" id="greeklg" title="Greek (large)">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><span
-                                            class="roman font"><var>AB</var><span>Γ</span></span></b></c>
+                                            class="roman font"><var>A</var><var>B</var><var>Γ</var></span></b></c>
                             </i></td>
                         <td><i class="pad-toolbar-trigo" id="trigo" title="Trigonometry">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
@@ -57,7 +57,7 @@
                         <td><i class="pad-toolbar-matrix" id="matrix" title="Matrices &amp; Vectors">
                                 <c style="font-size: 14px;" class="mathquill-embedded-latex mathquill-rendered-math">
                                     <span class="selectable"></span><b class="text"><span class="block"><span
-                                                class="paren" style="transform: scale(1.2, 2.75862);">(</span>
+                                                class="paren">(</span>
                                             <table class="matrix" style="">
                                                 <tbody>
                                                     <tr>
@@ -70,7 +70,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table><span class="paren"
-                                                style="transform: scale(1.2, 2.75862);">)</span>
+                                                >)</span>
                                         </span></b>
                                 </c>
                             </i></td>
@@ -87,7 +87,11 @@
                             <div class="icon-symbolab left-border"></div>
                             <div class="button-container">
                                 <table id="commons" class="buttons">
+
                                     <tbody>
+                                        <tr>
+                                            <td class="btn btn-sm btn-warning">Commons</td>
+                                        </tr>
                                         <tr>
                                             <td><i data-append="^{2}" data-moveleft="0"
                                                     class="padButton pad-button-11" title="^{2}">
@@ -170,6 +174,9 @@
                                 </table>
                                 <table id="basics" style="display: none" class="buttons">
                                     <tbody>
+                                        <tr>
+                                            <td class="btn btn-sm btn-warning">Basics</td>
+                                        </tr>
                                         <tr>
                                             <td><i data-append="\ge" data-moveleft="0"
                                                     class="padButton pad-button-11" title="\ge">
@@ -351,6 +358,9 @@
                                 <table id="greeksms" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
+                                            <td class="btn btn-sm btn-warning">Greek</td>
+                                        </tr>
+                                        <tr>
                                             <td><i data-append="\alpha" class="padButton pad-button-11"
                                                     title="\alpha">
                                                     <c class="mathquill-embedded-latex mathquill-rendered-math"><span
@@ -462,6 +472,9 @@
                                 <table id="greeklgs" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
+                                            <td class="btn btn-sm btn-warning">Greek Large</td>
+                                        </tr>
+                                        <tr>
                                             <td><i data-append="A" class="padButton pad-button-11" title="A">
                                                     <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                                             class="selectable"></span><var>A</var></c>
@@ -566,6 +579,9 @@
                                 </table>
                                 <table id="trigos" style="display: none" class="buttons">
                                     <tbody>
+                                        <tr>
+                                            <td class="btn btn-sm btn-warning">Trigonometry</td>
+                                        </tr>
                                         <tr>
                                             <td><i data-append="\sin \left(\right)" data-moveleft="1"
                                                     class="padButton pad-button-11" title="\sin \left(\right)">
@@ -707,6 +723,10 @@
                                 <table id="operatorss" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
+                                            <td class="btn btn-sm btn-warning">Operators</td>
+                                        </tr>
+                                        <tr>
+
                                             <td><i data-append="\begin{cases}&amp;\\&amp;\end{cases}"
                                                     data-moveleft="4" class="padButton pad-button-11"
                                                     title="\begin{cases}&amp;\\&amp;\end{cases}">
@@ -898,6 +918,9 @@
                                 <table id="accentss" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
+                                            <td class="btn btn-sm btn-warning">Accents</td>
+                                        </tr>
+                                        <tr>
                                             <td><i data-append="\overline{ }" data-moveleft="1"
                                                     class="padButton pad-button-11" title="\overline{ }">
                                                     <c class="mathquill-embedded-latex mathquill-rendered-math"><span
@@ -1031,6 +1054,9 @@
                                 </table>
                                 <table id="bigoperatorss" style="display: none" class="buttons">
                                     <tbody>
+                                        <tr>
+                                            <td class="btn btn-sm btn-warning">Big Operator</td>
+                                        </tr>
                                         <tr>
                                             <td><i data-append="\int" data-moveleft="0"
                                                     class="padButton pad-button-15" title="\int">
@@ -1207,6 +1233,9 @@
                                 </table>
                                 <table id="matrixs" style="display: none" class="buttons">
                                     <tbody>
+                                        <tr>
+                                            <td class="btn btn-sm btn-warning">Matrix</td>
+                                        </tr>
                                         <tr>
                                             <td><i class="padButton pad-button-matrix">
                                                     <c class="mathquill-embedded-latex mathquill-rendered-math"><span
@@ -1452,6 +1481,9 @@
                                 </table>
                                 <table id="chemistrys" style="display: none" class="buttons">
                                     <tbody>
+                                        <tr>
+                                            <td class="btn btn-sm btn-warning">Chemistry</td>
+                                        </tr>
                                         <tr>
                                             <td class="atomInTable" title="Hydrogen">
                                                 <span class="mathquill-embedded-latex mathquill-rendered-math">
@@ -2042,6 +2074,9 @@
                                 <table id="calculators" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
+                                            <td class="btn btn-sm btn-warning">Calculator</td>
+                                        </tr>
+                                        <tr>
                                             <td><i class="padButton calculatorBtn radBtn active">
                                                     <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                                             class="selectable"></span><span
@@ -2265,7 +2300,7 @@
                     <span class="mathquill-embedded-latex mathquill-rendered-math"><span
                             class="selectable"></span><span class="roman font"><var>line</var></span></span>
                 </span>
-                <span style="position: relative;">
+                {{-- <span style="position: relative;">
                     <svg class="svg-icon">
                         <use href="#dropdown_arrow"></use>
                     </svg>
@@ -2315,7 +2350,7 @@
                             data-clear="true">telescoping test</option>
                         <option data-append="vertex\:" data-moveleft="0" data-clear="true">vertex</option>
                     </select>
-                </span>
+                </span> --}}
             </div>
         </div>
     </div>
