@@ -116,17 +116,17 @@
     pointer-events: none
 }
 
-#CodepadHead td {
+#andre td {
     border-top: 1px solid #c9c9c9;
     border-left: 1px solid #c9c9c9;
     border-bottom: 1px solid #c9c9c9
 }
 
-#CodepadHead td.last {
+#andre td.last {
     border-right: 1px solid #c9c9c9
 }
 
-#CodepadHead [class^="pad-toolbar-"],#CodepadHead [class*="pad-toolbar-"] {
+#andre [class^="pad-toolbar-"],#andre [class*="pad-toolbar-"] {
     display: inline-block;
     width: 67px;
     height: 43px;
@@ -136,13 +136,13 @@
     text-align: center
 }
 
-#CodepadHead i.active,#CodepadHead [class^="pad-toolbar-"]:hover,#CodepadHead [class*=" pad-toolbar-"]:hover {
+#andre i.active,#andre [class^="pad-toolbar-"]:hover,#andre [class*=" pad-toolbar-"]:hover {
     cursor: pointer;
-    background-color: #e02342;
+    background-color: #FFAE1F;
     color: white
 }
 
-#CodepadHead i c {
+#andre i c {
     font-style: normal;
     font-size: 12.75pt
 }
@@ -387,7 +387,7 @@ i.active .mathquill-rendered-math .overline,i:hover>.mathquill-rendered-math .ov
     color: black
 }
 
-#CodepadHead .pad-toolbar-calculator c {
+#andre .pad-toolbar-calculator c {
     background: url('/public/images/calculator.png') 100% 0 no-repeat;
     width: 20px;
     height: 21px;
@@ -396,7 +396,7 @@ i.active .mathquill-rendered-math .overline,i:hover>.mathquill-rendered-math .ov
     cursor: pointer
 }
 
-#CodepadHead .pad-toolbar-calculator.active c,#CodepadHead .pad-toolbar-calculator:hover c {
+#andre .pad-toolbar-calculator.active c,#andre .pad-toolbar-calculator:hover c {
     background: url('/public/images/calculator2.png') 100% 0 no-repeat
 }
 
@@ -822,8 +822,8 @@ h1:hover+#underTitle.nl-topSubMenu,#underTitle.nl-topSubMenu:hover {
 }
 
 #codepad-align-width1,#codepad-align-width2 {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    /* flex-direction: column; */
     gap: 8px;
     z-index: 15;
     background-color: white;
@@ -1164,17 +1164,18 @@ dis {
     pointer-events: none
 }
 
-#CodepadHead td {
+#andre td {
     border-top: 1px solid #c9c9c9;
     border-left: 1px solid #c9c9c9;
-    border-bottom: 1px solid #c9c9c9
+    border-bottom: 1px solid #c9c9c9;
+    border-right: 1px solid #c9c9c9;
 }
 
-#CodepadHead td.last {
+#andre td.last {
     border-right: 1px solid #c9c9c9
 }
 
-#CodepadHead [class^="pad-toolbar-"],#CodepadHead [class*="pad-toolbar-"] {
+#andre [class^="pad-toolbar-"],#andre [class*="pad-toolbar-"] {
     display: inline-block;
     width: 67px;
     height: 43px;
@@ -1184,9 +1185,9 @@ dis {
     text-align: center
 }
 
-#CodepadHead i.active,#CodepadHead [class^="pad-toolbar-"]:hover,#CodepadHead [class*=" pad-toolbar-"]:hover {
+#andre i.active,#andre [class^="pad-toolbar-"]:hover,#andre [class*=" pad-toolbar-"]:hover {
     cursor: pointer;
-    background-color: #e02342;
+    background-color: #FFAE1F;
     color: white
 }
 
@@ -1194,7 +1195,7 @@ i.active .mathquill-rendered-math .overline,i:hover>.mathquill-rendered-math .ov
     border-color: white
 }
 
-#CodepadHead i c {
+#andre i c {
     font-style: normal;
     font-size: 12.75pt
 }
