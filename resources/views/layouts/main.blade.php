@@ -8,6 +8,8 @@
     <link rel="shortcut icon" type="image/png" href="{{ asset('icon-strategy.jpg') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/tools.css') }}" />
+
 </head>
 
 <body>
@@ -97,16 +99,22 @@
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
+    <script src="https://kit.fontawesome.com/9be63813c8.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function() {
             $('#datatable').DataTable();
         });
     </script>
-
+    <script>
+        $('#button').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            console.log(e);
+            $('#all-pads').toggle();
+        });
+    </script>
     @stack('scripts')
 </body>
 
