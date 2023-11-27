@@ -2256,8 +2256,7 @@
                     <span class="mathquill-embedded-latex mathquill-rendered-math"><span
                             class="selectable"></span><span class="roman font"><var>inverse</var></span></span>
                 </span>
-                <span class="padButton new-pad-button font16" data-append="tangent\:of\:f(x)=,\:x="
-                    data-moveleft="4" data-clear="true" title="tangent\:of\:f(x)=,\:x=">
+                <span class="padButton new-pad-button font16" data-append="tangent\:of\:f(x)=,\:x='" data-moveleft="4" data-clear="true" title="'tangent\:of\:f(x)=,\:x='">
                     <span class="mathquill-embedded-latex mathquill-rendered-math"><span
                             class="selectable"></span><span class="roman font"><var>tangent</var></span></span>
                 </span>
