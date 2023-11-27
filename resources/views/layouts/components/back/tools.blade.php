@@ -9,47 +9,52 @@
             <table class="codepad-form" style="width: 600px;">
                 <tbody>
                     <tr id="andre">
-                        <td><i class="pad-toolbar-basic" title="Basic">
+                        <td><i class="pad-toolbar-basic" id="common" title="Common">
+                                <c class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                        class="selectable"></span><b class="text"><span
+                                            class="roman font"><var>Common</var></span></b></c>
+                            </i></td>
+                        <td><i class="pad-toolbar-basic" id="basic" title="Basic">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><span
                                             class="roman font"><var>Basic</var></span></b></c>
                             </i></td>
-                        <td><i class="pad-toolbar-greeksm" title="Greek (small)">
+                        <td><i class="pad-toolbar-greeksm" id="greeksm" title="Greek (small)">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b
                                         class="text"><var>α</var><var>β</var><var>γ</var></b></c>
                             </i></td>
-                        <td><i class="pad-toolbar-greeklg" title="Greek (large)">
+                        <td><i class="pad-toolbar-greeklg" id="greeklg" title="Greek (large)">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><span
                                             class="roman font"><var>AB</var><span>Γ</span></span></b></c>
                             </i></td>
-                        <td><i class="pad-toolbar-trigo" title="Trigonometry">
+                        <td><i class="pad-toolbar-trigo" id="trigo" title="Trigonometry">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><span
                                             class="non-italicized-function">sin</span><span
                                             class="non-italicized-function">cos</span></b></c>
                             </i></td>
-                        <td><i class="pad-toolbar-operators" title="Operators">
+                        <td><i class="pad-toolbar-operators" id="operators" title="Operators">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><span
                                             class="binary-operator">≥</span><span
                                             class="binary-operator">÷</span><span>→</span></b></c>
                             </i></td>
-                        <td><i class="pad-toolbar-accents" title="Accents">
+                        <td><i class="pad-toolbar-accents" id="accents" title="Accents">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><span class="diacritic"><span
                                                 class="overline lowercase"
                                                 style="display: inline-block;"></span><var>x</var></span><span> </span><span>ℂ</span><span>∀</span></b>
                                 </c>
                             </i></td>
-                        <td><i class="pad-toolbar-bigoperators" title="Big Operators">
+                        <td><i class="pad-toolbar-bigoperators" id="bigoperators" title="Big Operators">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b
                                         class="text"><big>∑</big><span> </span><big>∫</big><span> </span><big>∏</big></b>
                                 </c>
                             </i></td>
-                        <td><i class="pad-toolbar-matrix" title="Matrices &amp; Vectors">
+                        <td><i class="pad-toolbar-matrix" id="matrix" title="Matrices &amp; Vectors">
                                 <c style="font-size: 14px;" class="mathquill-embedded-latex mathquill-rendered-math">
                                     <span class="selectable"></span><b class="text"><span class="block"><span
                                                 class="paren" style="transform: scale(1.2, 2.75862);">(</span>
@@ -66,24 +71,26 @@
                                                 </tbody>
                                             </table><span class="paren"
                                                 style="transform: scale(1.2, 2.75862);">)</span>
-                                        </span></b></c>
+                                        </span></b>
+                                </c>
                             </i></td>
-                        <td><i class="pad-toolbar-chemistry" title="Chemistry">
+                        <td><i class="pad-toolbar-chemistry" id="chemistry" title="Chemistry">
                                 <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                         class="selectable"></span><b class="text"><var>H</var><sub
                                             class=""><span>2</span></sub><var>O</var></b></c>
                             </i></td>
-                        <td><i class="pad-toolbar-calculator fa-solid fa-calculator" title="Calculator"></i></td>
+                        <td><i class="pad-toolbar-calculator fa-solid fa-calculator" id="calculator"
+                                title="Calculator"></i></td>
                     </tr>
-                    <tr class="codepadbody">
+                    <tr class="andrebody">
                         <td colspan="11">
                             <div class="icon-symbolab left-border"></div>
                             <div class="button-container">
-                                <table id="Common" class="buttons nohide">
+                                <table id="commons" class="buttons">
                                     <tbody>
                                         <tr>
-                                            <td><i data-append="^{2}" data-moveleft="0" class="padButton pad-button-11"
-                                                    title="^{2}">
+                                            <td><i data-append="^{2}" data-moveleft="0"
+                                                    class="padButton pad-button-11" title="^{2}">
                                                     <c class="mathquill-embedded-latex mathquill-rendered-math"><span
                                                             class="selectable"></span><span>☐</span><sup
                                                             class=""><span>2</span></sup></c>
@@ -161,7 +168,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Basic" hidden class="buttons padding">
+                                <table id="basics" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="\ge" data-moveleft="0"
@@ -299,7 +306,8 @@
                                                         class="mathquill-embedded-latex mathquill-rendered-math hasCursor">
                                                         <span class="selectable"></span><span
                                                             class="cursor">​</span><span
-                                                            class="non-italicized-function">sin</span></c>
+                                                            class="non-italicized-function">sin</span>
+                                                    </c>
                                                 </i></td>
                                             <td><i data-append="\cos \left(\right)" data-moveleft="1"
                                                     class="padButton pad-button-29" title="\cos \left(\right)">
@@ -307,7 +315,8 @@
                                                         class="mathquill-embedded-latex mathquill-rendered-math hasCursor">
                                                         <span class="selectable"></span><span
                                                             class="cursor">​</span><span
-                                                            class="non-italicized-function">cos</span></c>
+                                                            class="non-italicized-function">cos</span>
+                                                    </c>
                                                 </i></td>
                                             <td><i data-append="\tan \left(\right)" data-moveleft="1"
                                                     class="padButton pad-button-210" title="\tan \left(\right)">
@@ -315,7 +324,8 @@
                                                         class="mathquill-embedded-latex mathquill-rendered-math hasCursor">
                                                         <span class="selectable"></span><span
                                                             class="cursor blink">​</span><span
-                                                            class="non-italicized-function">tan</span></c>
+                                                            class="non-italicized-function">tan</span>
+                                                    </c>
                                                 </i></td>
                                             <td><i data-append="\cot \left(\right)" data-moveleft="1"
                                                     class="padButton pad-button-210" title="\cot \left(\right)">
@@ -338,7 +348,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Greeksm" hidden class="buttons padding hide">
+                                <table id="greeksms" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="\alpha" class="padButton pad-button-11"
@@ -449,7 +459,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Greeklg" hidden class="buttons padding hide">
+                                <table id="greeklgs" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="A" class="padButton pad-button-11" title="A">
@@ -554,7 +564,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Trigo" hidden class="buttons padding hide">
+                                <table id="trigos" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="\sin \left(\right)" data-moveleft="1"
@@ -694,7 +704,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Operators" hidden class="buttons padding hide">
+                                <table id="operatorss" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="\begin{cases}&amp;\\&amp;\end{cases}"
@@ -885,7 +895,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Accents" hidden class="buttons padding hide">
+                                <table id="accentss" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="\overline{ }" data-moveleft="1"
@@ -1019,7 +1029,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Bigoperators" hidden class="buttons padding hide">
+                                <table id="bigoperatorss" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i data-append="\int" data-moveleft="0"
@@ -1195,7 +1205,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="Matrix" hidden class="buttons padding hide">
+                                <table id="matrixs" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i class="padButton pad-button-matrix">
@@ -1310,7 +1320,7 @@
                                                 </i></td>
                                             <td class="new-pad-button font6 custom-matrix"
                                                 onclick="createCustomMatrix($(this).find('div'))"><img
-                                                    src="{{asset('/assets/images/icons/pad_matrixnxn.png') }}">
+                                                    src="{{ asset('/assets/images/icons/pad_matrixnxn.png') }}">
                                                 <div class="hide customMatrixDiv"
                                                     style="padding-right: 0px !important;"></div>
                                             </td>
@@ -1440,9 +1450,596 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id="chemistryTable" hidden class="buttons padding hide">
+                                <table id="chemistrys" style="display: none" class="buttons">
+                                    <tbody>
+                                        <tr>
+                                            <td class="atomInTable" title="Hydrogen">
+                                                <span class="mathquill-embedded-latex mathquill-rendered-math">
+                                                    <span class="selectable">
+                                                    </span>
+                                                    <span class="roman font">
+                                                        <var>H</var>
+                                                    </span>
+                                                </span>
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="atomInTable" title="Right arrow">
+                                                <span class="mathquill-embedded-latex mathquill-rendered-math">
+                                                    <span class="selectable">
+                                                    </span>
+                                                    <span class="roman font">
+                                                        <span>⇒</span>
+                                                    </span>
+                                                </span>
+                                            </td>
+                                            <td class="atomInTable" title="Underscore">
+                                                <span class="mathquill-embedded-latex mathquill-rendered-math">
+                                                    <span class="selectable">
+                                                    </span>
+                                                    <span class="roman font">
+                                                        <var>O</var>
+                                                        <sub class="">
+                                                            <span>□</span>
+                                                        </sub>
+                                                    </span>
+                                                </span>
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable">
+                                            </td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Helium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>He</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="atomInTable" title="Lithium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Li</var></span></span></td>
+                                            <td class="atomInTable" title="Beryllium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Be</var></span></span></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Boron"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>B</var></span></span></td>
+                                            <td class="atomInTable" title="Carbon"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>C</var></span></span></td>
+                                            <td class="atomInTable" title="Nitrogen"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>N</var></span></span></td>
+                                            <td class="atomInTable" title="Oxygen"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>O</var></span></span></td>
+                                            <td class="atomInTable" title="Fluorine"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>F</var></span></span></td>
+                                            <td class="atomInTable" title="Neon"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ne</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="atomInTable" title="Sodium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Na</var></span></span></td>
+                                            <td class="atomInTable" title="Magnesium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Mg</var></span></span></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Aluminum"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Al</var></span></span></td>
+                                            <td class="atomInTable" title="Silicon"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Si</var></span></span></td>
+                                            <td class="atomInTable" title="Phosphorus"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>P</var></span></span></td>
+                                            <td class="atomInTable" title="Sulfur"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>S</var></span></span></td>
+                                            <td class="atomInTable" title="Chlorine"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cl</var></span></span></td>
+                                            <td class="atomInTable" title="Argon"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ar</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="atomInTable" title="Potassium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>K</var></span></span></td>
+                                            <td class="atomInTable" title="Calcium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ca</var></span></span></td>
+                                            <td class="atomInTable" title="Scandium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Sc</var></span></span></td>
+                                            <td class="atomInTable" title="Titanium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font hasCursor"><span
+                                                            class="cursor">​</span><var>Ti</var></span></span></td>
+                                            <td class="atomInTable" title="Vanadium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>V</var></span></span></td>
+                                            <td class="atomInTable" title="Chromium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cr</var></span></span></td>
+                                            <td class="atomInTable" title="Manganese"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font hasCursor"><var>Mn</var><span
+                                                            class="cursor">​</span></span></span></td>
+                                            <td class="atomInTable" title="Iron"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Fe</var></span></span></td>
+                                            <td class="atomInTable" title="Cobalt"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Co</var></span></span></td>
+                                            <td class="atomInTable" title="Nickel"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ni</var></span></span></td>
+                                            <td class="atomInTable" title="Copper"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cu</var></span></span></td>
+                                            <td class="atomInTable" title="Zinc"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Zn</var></span></span></td>
+                                            <td class="atomInTable" title="Gallium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ga</var></span></span></td>
+                                            <td class="atomInTable" title="Germanium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ge</var></span></span></td>
+                                            <td class="atomInTable" title="Arsenic"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>As</var></span></span></td>
+                                            <td class="atomInTable" title="Selenium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Se</var></span></span></td>
+                                            <td class="atomInTable" title="Bromine"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Br</var></span></span></td>
+                                            <td class="atomInTable" title="Krypton"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Kr</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="atomInTable" title="Rubidium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Rb</var></span></span></td>
+                                            <td class="atomInTable" title="Strontium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Sr</var></span></span></td>
+                                            <td class="atomInTable" title="Yttrium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Y</var></span></span></td>
+                                            <td class="atomInTable" title="Zirconium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Zr</var></span></span></td>
+                                            <td class="atomInTable" title="Niobium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Nb</var></span></span></td>
+                                            <td class="atomInTable" title="Molybdenum"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Mo</var></span></span></td>
+                                            <td class="atomInTable" title="Technetium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Tc</var></span></span></td>
+                                            <td class="atomInTable" title="Ruthenium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ru</var></span></span></td>
+                                            <td class="atomInTable" title="Rhodium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Rh</var></span></span></td>
+                                            <td class="atomInTable" title="Palladium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pd</var></span></span></td>
+                                            <td class="atomInTable" title="Silver"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ag</var></span></span></td>
+                                            <td class="atomInTable" title="Cadmium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cd</var></span></span></td>
+                                            <td class="atomInTable" title="Indium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>In</var></span></span></td>
+                                            <td class="atomInTable" title="Tin"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Sn</var></span></span></td>
+                                            <td class="atomInTable" title="Antimony"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Sb</var></span></span></td>
+                                            <td class="atomInTable" title="Tellurium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Te</var></span></span></td>
+                                            <td class="atomInTable" title="Iodine"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>I</var></span></span></td>
+                                            <td class="atomInTable" title="Xenon"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Xe</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="atomInTable" title="Caesium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cs</var></span></span></td>
+                                            <td class="atomInTable" title="Barium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ba</var></span></span></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Hafnium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Hf</var></span></span></td>
+                                            <td class="atomInTable" title="Tantalum"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ta</var></span></span></td>
+                                            <td class="atomInTable" title="Tungsten"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>W</var></span></span></td>
+                                            <td class="atomInTable" title="Rhenium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Re</var></span></span></td>
+                                            <td class="atomInTable" title="Osmium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Os</var></span></span></td>
+                                            <td class="atomInTable" title="Iridium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ir</var></span></span></td>
+                                            <td class="atomInTable" title="Platinum"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pt</var></span></span></td>
+                                            <td class="atomInTable" title="Gold"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Au</var></span></span></td>
+                                            <td class="atomInTable" title="Mercury"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Hg</var></span></span></td>
+                                            <td class="atomInTable" title="Thallium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Tl</var></span></span></td>
+                                            <td class="atomInTable" title="Lead"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pb</var></span></span></td>
+                                            <td class="atomInTable" title="Bismuth"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Bi</var></span></span></td>
+                                            <td class="atomInTable" title="Polonium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Po</var></span></span></td>
+                                            <td class="atomInTable" title="Astatine"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>At</var></span></span></td>
+                                            <td class="atomInTable" title="Radon"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Rn</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="atomInTable" title="Francium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Fr</var></span></span></td>
+                                            <td class="atomInTable" title="Radium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ra</var></span></span></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Rutherfordium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Rf</var></span></span></td>
+                                            <td class="atomInTable" title="Dubnium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Db</var></span></span></td>
+                                            <td class="atomInTable" title="Seaborgium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Sg</var></span></span></td>
+                                            <td class="atomInTable" title="Bohrium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Bh</var></span></span></td>
+                                            <td class="atomInTable" title="Hassium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Hs</var></span></span></td>
+                                            <td class="atomInTable" title="Meitnerium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Mt</var></span></span></td>
+                                            <td class="atomInTable" title="Darmstadtium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ds</var></span></span></td>
+                                            <td class="atomInTable" title="Roentgenium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Rg</var></span></span></td>
+                                            <td class="atomInTable" title="Copernicium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cn</var></span></span></td>
+                                            <td class="atomInTable" title="Ununtrium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Uut</var></span></span></td>
+                                            <td class="atomInTable" title="Flerovium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Fl</var></span></span></td>
+                                            <td class="atomInTable" title="Ununpentium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Uup</var></span></span></td>
+                                            <td class="atomInTable" title="Livermorium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Lv</var></span></span></td>
+                                            <td class="atomInTable" title="Ununseptium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Uus</var></span></span></td>
+                                            <td class="atomInTable" title="Ununoctium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Uuo</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Lanthanum"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>La</var></span></span></td>
+                                            <td class="atomInTable" title="Cerium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ce</var></span></span></td>
+                                            <td class="atomInTable" title="Praseodymium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pr</var></span></span></td>
+                                            <td class="atomInTable" title="Neodymium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Nd</var></span></span></td>
+                                            <td class="atomInTable" title="Promethium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pm</var></span></span></td>
+                                            <td class="atomInTable" title="Samarium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Sm</var></span></span></td>
+                                            <td class="atomInTable" title="Europium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Eu</var></span></span></td>
+                                            <td class="atomInTable" title="Gadolinium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Gd</var></span></span></td>
+                                            <td class="atomInTable" title="Terbium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Tb</var></span></span></td>
+                                            <td class="atomInTable" title="Dysprosium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Dy</var></span></span></td>
+                                            <td class="atomInTable" title="Holmium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ho</var></span></span></td>
+                                            <td class="atomInTable" title="Erbium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Er</var></span></span></td>
+                                            <td class="atomInTable" title="Thulium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Tm</var></span></span></td>
+                                            <td class="atomInTable" title="Ytterbium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Yb</var></span></span></td>
+                                            <td class="atomInTable" title="Lutetium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Lu</var></span></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="noAtomInTable"></td>
+                                            <td class="atomInTable" title="Actinium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Ac</var></span></span></td>
+                                            <td class="atomInTable" title="Thorium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Th</var></span></span></td>
+                                            <td class="atomInTable" title="Protactinium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pa</var></span></span></td>
+                                            <td class="atomInTable" title="Uranium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>U</var></span></span></td>
+                                            <td class="atomInTable" title="Neptunium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Np</var></span></span></td>
+                                            <td class="atomInTable" title="Plutonium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Pu</var></span></span></td>
+                                            <td class="atomInTable" title="Americium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Am</var></span></span></td>
+                                            <td class="atomInTable" title="Curium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cm</var></span></span></td>
+                                            <td class="atomInTable" title="Berkelium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Bk</var></span></span></td>
+                                            <td class="atomInTable" title="Californium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Cf</var></span></span></td>
+                                            <td class="atomInTable" title="Einsteinium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Es</var></span></span></td>
+                                            <td class="atomInTable" title="Fermium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Fm</var></span></span></td>
+                                            <td class="atomInTable" title="Mendelevium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Md</var></span></span></td>
+                                            <td class="atomInTable" title="Nobelium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>No</var></span></span></td>
+                                            <td class="atomInTable" title="Lawrencium"><span
+                                                    class="mathquill-embedded-latex mathquill-rendered-math"><span
+                                                        class="selectable"></span><span
+                                                        class="roman font"><var>Lr</var></span></span></td>
+                                        </tr>
+                                    </tbody>
                                 </table>
-                                <table id="Calculator" hiddenv class="buttons padding hide">
+                                <table id="calculators" style="display: none" class="buttons">
                                     <tbody>
                                         <tr>
                                             <td><i class="padButton calculatorBtn radBtn active">

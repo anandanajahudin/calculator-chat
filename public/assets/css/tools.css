@@ -147,34 +147,34 @@
     font-size: 12.75pt
 }
 
-.codepadbody .pad-button-long c {
+.andrebody .pad-button-long c {
     position: relative;
     top: -2px
 }
 
-.codepadbody table.buttons {
+.andrebody table.buttons {
     border-spacing: 4px;
     border-collapse: separate
 }
 
-.codepadbody table.padding {
+.andrebody table.padding {
     padding-bottom: 6px
 }
 
-.codepadbody table.buttons td:not(.spacer) {
+.andrebody table.buttons td:not(.spacer) {
     border: 1px solid #eee
 }
 
-.codepadbody table.buttons td.spacer {
+.andrebody table.buttons td.spacer {
     display: block;
     height: 6px
 }
 
-.codepadbody table.buttons td.active {
+.andrebody table.buttons td.active {
     border: 1px solid red
 }
 
-.codepadbody [class^="pad-button-"],.codepadbody [class*=" pad-button-"] {
+.andrebody [class^="pad-button-"],.andrebody [class*=" pad-button-"] {
     cursor: pointer;
     display: inline-block;
     width: 52px;
@@ -185,7 +185,7 @@
     background-color: #f9f9f9
 }
 
-.codepadbody i.active,.codepadbody [class^="pad-button-"]:hover,.codepadbody [class*=" pad-button-"]:hover {
+.andrebody i.active,.andrebody [class^="pad-button-"]:hover,.andrebody [class*=" pad-button-"]:hover {
     background-color: white
 }
 
@@ -1038,7 +1038,7 @@ dis {
     display: flex !important
 }
 
-.codepadbody #Compact .padButton {
+.andrebody #Compact .padButton {
     margin-left: 4px
 }
 

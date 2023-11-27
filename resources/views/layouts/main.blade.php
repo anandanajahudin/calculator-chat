@@ -109,11 +109,70 @@
         });
     </script>
     <script>
+        // Show Buttons
         $('#button').click(function(e){
             e.preventDefault(); //to prevent standard click event
-            console.log(e);
             $('#all-pads').toggle();
         });
+
+        // Show Commons
+        $('#common').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#commons').toggle();
+        });
+
+        // Show basic
+        $('#basic').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#basics').toggle();
+        });
+
+        // Show Greek
+        $('#greeksm').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#greeksms').toggle();
+        });
+
+        $('#greeklg').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#greeklgs').toggle();
+        });
+
+        $('#trigo').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#trigos').toggle();
+        });
+
+        $('#operators').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#operatorss').toggle();
+        });
+
+        $('#accents').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#accentss').toggle();
+        });
+
+        $('#bigoperators').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#bigoperatorss').toggle();
+        });
+
+        $('#matrix').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#matrixs').toggle();
+        });
+
+        $('#chemistry').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#chemistrys').toggle();
+        });
+
+        $('#calculator').click(function(e){
+            e.preventDefault(); //to prevent standard click event
+            $('#calculators').toggle();
+        });
+
     </script>
     @stack('scripts')
 </body>
