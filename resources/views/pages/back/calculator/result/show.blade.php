@@ -65,6 +65,9 @@
                                     @else
                                         y = {{ $result }}
                                     @endif
+                                @elseif ($operator == 'probability')
+                                    <b>n(A)</b> = {{ $first_number }} <br>
+                                    <b>n(S)</b> = {{ $last_number }}
                                 @else
                                     {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
                                 @endif
