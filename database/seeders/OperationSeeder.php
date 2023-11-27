@@ -126,9 +126,15 @@ class OperationSeeder extends Seeder
             'created_at' => Carbon::now(),
         ]);
         DB::table('operations')->insert([
-            'name' => 'Pythagorean Theorem',
+            'name' => 'Pythagorean theorem',
             'operator' => 'pythagorean',
             'description' => 'pythagorean(5, 12)',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Heron theorem',
+            'operator' => 'heron',
+            'description' => 'heron(6, 8, 10)',
             'created_at' => Carbon::now(),
         ]);
     }

@@ -68,6 +68,12 @@
                                 @elseif ($operator == 'probability')
                                     <b>n(A)</b> = {{ $first_number }} <br>
                                     <b>n(S)</b> = {{ $last_number }}
+                                @elseif ($operator == 'heron')
+                                    {{-- HERON --}}
+                                    <b>a</b> = {{ $angka1 }} <br>
+                                    <b>b</b> = {{ $angka2 }} <br>
+                                    <b>c</b> = {{ $angka3 }} <br>
+                                    <b>s</b> = {{ $angkaS }}
                                 @else
                                     {{ $operator . '(' . $first_number . ')' . ' = ' . $result }}
                                 @endif

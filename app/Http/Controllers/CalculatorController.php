@@ -93,6 +93,10 @@ class CalculatorController extends Controller
 
             return redirect()->route('calculator.sigma');
 
+        } else if (str_contains($chat, 'graph')) {
+
+            return redirect()->route('calculator.graph');
+
         } else {
             preg_match_all('!\d+!', $chat, $matches);
             $jumlahBilangan = count($matches[0]);
@@ -701,6 +705,46 @@ class CalculatorController extends Controller
                                 'operator' => $operator,
                                 'result' => $hasil,
                             ]);
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);
+                        }
+
+                    // Heron's theorem
+                    } else if (str_contains($chat, 'heron')) {
+
+                        if ($jumlahBilangan == 3) {
+
+                            // a = $angka1
+                            // b = $angka2
+                            $angka2 = intval($matches[0][1]);
+                            // c = $angka3
+                            $angka3 = intval($matches[0][2]);
+
+                            // s = (a + b + c) / 2
+                            $angkaS = ($angka1 + $angka2 + $angka3) / 2;
+
+                            // Heron A = sqrt( s (s - a) (s - b) (s - c) )
+                            $hasil = sqrt($angkaS * ($angkaS - $angka1) * ($angkaS - $angka2) * ($angkaS - $angka3));
+
+                            $operator = "heron";
+
+                            $calculatorSave = Calculator::create([
+                                'chat' => $chat,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+                            $calculator = Calculator::findOrFail($calculatorSave->id);
+
+                            return view('pages.back.calculator.result.show', [$calculatorSave->id])
+                                ->with([
+                                    'success' => 'The result of math solve HERON!',
+                                    'calculator' => $calculator,
+                                    'angka1' => $angka1,
+                                    'angka2' => $angka2,
+                                    'angka3' => $angka3,
+                                    'angkaS' => $angkaS
+                                ]);
+
                         } else {
                             return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);
                         }
