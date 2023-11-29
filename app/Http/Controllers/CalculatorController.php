@@ -560,10 +560,10 @@ class CalculatorController extends Controller
                         }
 
                     // Arcsin
-                    } else if (str_contains($chat, 'arcsin')) {
+                    } else if (str_contains($chat, 'asin')) {
                         if ($jumlahBilangan == 1) {
-                            $hasil = arcsin($angka1);
-                            $operator = "arcsin";
+                            $hasil = asin($angka1);
+                            $operator = "asin";
 
                             $calculator = Calculator::create([
                                 'chat' => $chat,
@@ -576,10 +576,10 @@ class CalculatorController extends Controller
                         }
 
                     // Arccos
-                    } else if (str_contains($chat, 'arccos')) {
+                    } else if (str_contains($chat, 'acos')) {
                         if ($jumlahBilangan == 1) {
-                            $hasil = arccos($angka1);
-                            $operator = "arccos";
+                            $hasil = acos($angka1);
+                            $operator = "acos";
 
                             $calculator = Calculator::create([
                                 'chat' => $chat,
@@ -592,10 +592,10 @@ class CalculatorController extends Controller
                         }
 
                     // Arctan
-                    } else if (str_contains($chat, 'arctan')) {
+                    } else if (str_contains($chat, 'atan')) {
                         if ($jumlahBilangan == 1) {
-                            $hasil = arctan($angka1);
-                            $operator = "arctan";
+                            $hasil = atan($angka1);
+                            $operator = "atan";
 
                             $calculator = Calculator::create([
                                 'chat' => $chat,
