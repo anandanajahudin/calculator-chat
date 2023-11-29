@@ -603,6 +603,38 @@ class CalculatorController extends Controller
                             return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
                         }
 
+                    // Derivative
+                    } else if (str_contains($chat, 'derivative')) {
+
+                        if ($jumlahBilangan == 2) {
+                            // x = $angka1
+                            // bil. pangkat = $angka2
+                            $angka2 = intval($matches[0][1]);
+
+                            $turunanPangkat = $angka2 - 1;
+
+                            if ($turunanPangkat == 0 || $turunanPangkat == 1) {
+                                $hasil = $angka1;
+                            } else if ($turunanPangkat > 1) {
+                                $hasil = $angka1 * $turunanPangkat;
+                            } else {
+                                return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);
+                            }
+
+                            $operator = "derivative";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'last_number' => $angka2,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Your input is invalid, only for integer value!']);
+                        }
+
                     // Integral
                     } else if (str_contains($chat, 'integral')) {
 

@@ -66,6 +66,31 @@
                                         y = {{ $result }}
                                     @endif
 
+                                    {{-- DERIVATIVE --}}
+                                @elseif ($operator == 'derivative')
+                                    <b>x</b> = {{ $first_number }} <br>
+                                    <b>f(x)</b> = {{ $first_number . '^' . $last_number }} <br>
+
+                                    <b>f′(x)</b> =
+
+                                    @php
+                                        $turunanPangkat = $last_number - 1;
+
+                                        if ($turunanPangkat == 0) {
+                                            $hasil = $first_number;
+                                        } elseif ($turunanPangkat == 1) {
+                                            $first_number = strval($first_number);
+                                            $hasil = $first_number . 'x';
+                                        } elseif ($turunanPangkat > 1) {
+                                            $hasilAngka = $first_number * $turunanPangkat;
+                                            $turunanPangkat = strval($turunanPangkat);
+                                            $hasil = strval($hasilAngka) . 'x^' . $turunanPangkat;
+                                        } else {
+                                        }
+                                    @endphp
+
+                                    {{ $hasil }}
+
                                     {{-- INTEGRAL --}}
                                 @elseif ($operator == 'integral')
                                     <b>b (batas atas)</b> = {{ $angka1 }} <br>
@@ -99,6 +124,24 @@
                 @endif
 
                 <div class="col-lg-12">
+                    @php
+
+                        if ($operator == 'derivative') {
+                            if ($turunanPangkat == 0) {
+                                $result = $first_number;
+                            } elseif ($turunanPangkat == 1) {
+                                $first_number = strval($first_number);
+                                $result = $first_number . 'x';
+                            } elseif ($turunanPangkat > 1) {
+                                $resultAngka = $first_number * $turunanPangkat;
+                                $turunanPangkat = strval($turunanPangkat);
+                                $result = strval($resultAngka) . 'x^' . $turunanPangkat;
+                            } else {
+                            }
+                        }
+                    @endphp
+
+
                     <p><b>result = {{ $result }}</b></p>
                 </div>
 

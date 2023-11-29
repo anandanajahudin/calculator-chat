@@ -102,6 +102,18 @@ class OperationSeeder extends Seeder
             'created_at' => Carbon::now(),
         ]);
         DB::table('operations')->insert([
+            'name' => 'Derivative',
+            'operator' => 'derivative',
+            'description' => 'derivative(4, 3)',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
+            'name' => 'Integral',
+            'operator' => 'integral',
+            'description' => 'integral(3, 2, 2)',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
             'name' => 'Sigma',
             'operator' => 'sigma',
             'description' => 'sigma',

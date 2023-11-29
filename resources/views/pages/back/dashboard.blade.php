@@ -11,10 +11,6 @@
         <div class="alert alert-danger">
             {{ $message }}
         </div>
-    @else
-        <div class="alert alert-success">
-            You are logged in!
-        </div>
     @endif
 
     <div class="card">
