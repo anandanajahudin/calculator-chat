@@ -138,6 +138,12 @@ class OperationSeeder extends Seeder
             'created_at' => Carbon::now(),
         ]);
         DB::table('operations')->insert([
+            'name' => 'Simplify Algebraic',
+            'operator' => 'simplify',
+            'description' => 'simplify',
+            'created_at' => Carbon::now(),
+        ]);
+        DB::table('operations')->insert([
             'name' => 'Pythagorean theorem',
             'operator' => 'pythagorean',
             'description' => 'pythagorean(5, 12)',

@@ -97,6 +97,10 @@ class CalculatorController extends Controller
 
             return redirect()->route('calculator.sigma');
 
+        } else if (str_contains($chat, 'simplify') || str_contains($chat, 'simple')) {
+
+            return redirect()->route('calculator.simple');
+
         } else if (str_contains($chat, 'graph')) {
 
             return redirect()->route('calculator.graph');

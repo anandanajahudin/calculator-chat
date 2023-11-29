@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('title', 'Calculator')
+
 @push('scripts')
     <script>
         jQuery(document).ready(function($) {
@@ -341,6 +342,7 @@
         })();
     </script>
 @endpush
+
 @section('content')
     @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible mb-3" role="alert">
@@ -366,9 +368,12 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><input data-ahproxy-input="" type="text" class="form-control" name="expression" size="35"
-                                                value=""></td>
-                                        <td><input data-ahproxy-submit="" class="btn btn-sm btn-primary" type="submit" value="SIMPLIFY">
+                                        <td>
+                                            <input data-ahproxy-input="" type="text" class="form-control" name="expression" size="35"
+                                                value="">
+                                            </td>
+                                        <td>
+                                            <input data-ahproxy-submit="" class="btn btn-sm btn-primary" type="submit" value="SIMPLIFY">
                                         </td>
                                     </tr>
                                 </tbody>
