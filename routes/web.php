@@ -49,9 +49,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
     // Python
     Route::post('/generate-plot-equation', [PythonController::class, 'generatePlotEquation'])->name('generatePlotEquation');
-    // Route::get('/generate-plot-equation', [PythonController::class, 'generatePlotEquation'])->name('generatePlotEquation');
     Route::post('/get-value', [PythonController::class, 'getValue'])->name('getValue');
     Route::post('/generate-plot', [PythonController::class, 'generatePlot'])->name('generatePlot');
-    // Route::get('/generate-graph', [PythonController::class, 'generateGraph'])->name('generateGraph');
-    // Route::get('/generate-plot/{arg1}/{arg2}', [PythonController::class, 'generatePlot'])->name('generatePlot');
+
 });
