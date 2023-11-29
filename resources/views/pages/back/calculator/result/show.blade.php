@@ -65,11 +65,25 @@
                                     @else
                                         y = {{ $result }}
                                     @endif
+
+                                    {{-- INTEGRAL --}}
+                                @elseif ($operator == 'integral')
+                                    <b>b (batas atas)</b> = {{ $angka1 }} <br>
+                                    <b>a (batas bawah)</b> = {{ $angka2 }} <br>
+                                    <b>x</b> = {{ $angka3 }} <br>
+                                    <b>f(x)</b> = x^2 <br>
+                                    <b>F(x)</b> = F(b) - F(a) <br>
+                                    <b>F(x)</b> = ( f(x) * b) - ( f(x) * a) <br>
+                                    <b>F(x)</b> = ({{ $persamaan * $angka1 }}) - ({{ $persamaan * $angka2 }}) <br>
+                                    <b>F(x)</b> = {{ $result }} <br>
+
+                                    {{-- PROBABILITAS --}}
                                 @elseif ($operator == 'probability')
                                     <b>n(A)</b> = {{ $first_number }} <br>
                                     <b>n(S)</b> = {{ $last_number }}
-                                @elseif ($operator == 'heron')
+
                                     {{-- HERON --}}
+                                @elseif ($operator == 'heron')
                                     <b>a</b> = {{ $angka1 }} <br>
                                     <b>b</b> = {{ $angka2 }} <br>
                                     <b>c</b> = {{ $angka3 }} <br>

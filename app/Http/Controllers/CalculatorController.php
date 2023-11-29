@@ -603,26 +603,59 @@ class CalculatorController extends Controller
                             return redirect()->route('dashboard')->with(['error' => 'Inverse Tangent Only for 1 Number!']);
                         }
 
-                        // Sigma
+                    // Integral
+                    } else if (str_contains($chat, 'integral')) {
+
+                        if ($jumlahBilangan == 3) {
+                            // batas atas = $angka1
+                            // batas bawah = $angka2
+                            $angka2 = intval($matches[0][1]);
+
+                            // x = angka3
+                            $angka3 = intval($matches[0][2]);
+
+                            // f(x) = x * x
+                            $persamaan = $angka3 * $angka3;
+
+                            // F(x) = (x * x) x
+
+                            // F(b) = $fAngka1 batas atas
+                            $fAngka1 = $persamaan * $angka1;
+
+                            // F(a) = $fAngka2 batas bawah
+                            $fAngka2 = $persamaan * $angka2;
+
+                            // F(b) - F(a)
+                            $hasil = $fAngka1 - $fAngka2;
+
+                            $operator = "integral";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'last_number' => $angka2,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
+
+                            return view('pages.back.calculator.result.show', [$calculator->id])
+                                ->with([
+                                    'success' => 'The result of math solve INTEGRAL!',
+                                    'calculator' => $calculator,
+                                    'angka1' => $angka1,
+                                    'angka2' => $angka2,
+                                    'angka3' => $angka3,
+                                    'persamaan' => $persamaan
+                                ]);
+
+                        } else {
+                            return redirect()->route('dashboard')->with(['error' => 'Your input is invalid, only for integer value!']);
+                        }
+
+                    // Sigma
                     } else if (str_contains($chat, 'sigma')) {
 
                         return redirect()->route('sigma.index');
-
-                        // $angka2 = $matches[0][0];
-
-                        // if ($jumlahBilangan == 1) {
-                        //     $hasil = rad2deg($angka1);
-                        //     $operator = "degree";
-
-                        //     $calculator = Calculator::create([
-                        //         'chat' => $chat,
-                        //         'first_number' => $angka1,
-                        //         'operator' => $operator,
-                        //         'result' => $hasil,
-                        //     ]);
-                        // } else {
-                        //     return redirect()->route('dashboard')->with(['error' => 'Your input is invalid, only for integer value!']);
-                        // }
 
                     // Degree
                     } else if (str_contains($chat, 'degree')) {
@@ -746,6 +779,7 @@ class CalculatorController extends Controller
                                 ]);
                         }
 
+                    // Circle
                     } else if (str_contains($chat, 'circle')) {
 
                         if ($jumlahBilangan == 1) {

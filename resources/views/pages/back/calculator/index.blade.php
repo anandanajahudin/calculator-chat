@@ -25,12 +25,12 @@
             <hr>
 
             {{-- <form action="{{ route('generatePlotEquation') }}" method="GET"> --}}
-            <form action="{{ route('generatePlot') }}" method="POST">
+            {{-- <form action="{{ route('generatePlot') }}" method="POST">
                 @csrf
                 <label for="equation">Equation:</label>
                 <div class="row">
                     <div class="col-md-6">
-                        {{-- <input type="text" class="form-control" name="equation" id="equation" required> --}}
+                        <input type="text" class="form-control" name="equation" id="equation" required>
                         <input type="text" class="form-control" name="xVal" id="xVal" required>
                         <input type="text" class="form-control" name="yVal" id="yVal" required>
                     </div>
@@ -38,7 +38,7 @@
                 <div class="mt-3">
                     <button type="submit" class="btn btn-success">Generate Plot</button>
                 </div>
-            </form>
+            </form> --}}
 
             {{-- <hr />
             <a href="{{ route('generateGraph') }}" class="btn btn-success">Run Python</a>
