@@ -2,12 +2,7 @@
 
 @section('title', 'Calculator')
 @push('scripts')
-    <script type="text/javascript">
-        var id = $('#a span').text();
-        if (id.length > 0) {
-            alert(id[0].value);
-        }
-    </script>
+
 @endpush
 @section('content')
     @if (session()->has('success'))

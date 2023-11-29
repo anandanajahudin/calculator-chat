@@ -40,6 +40,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
         Route::get('/calculator/history/{id}', 'history')->name('calculator.history');
 
         Route::get('/calculator/sigma', 'sigma')->name('calculator.sigma');
+        Route::get('/calculator/simple', 'simple')->name('calculator.simple');
         Route::get('/calculator/graph', 'graph')->name('calculator.graph');
         Route::post('/calculator/sigmaStore', 'store')->name('calculator.sigmaStore');
     });

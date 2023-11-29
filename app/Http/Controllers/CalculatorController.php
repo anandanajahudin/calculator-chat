@@ -30,6 +30,10 @@ class CalculatorController extends Controller
         return view('pages.back.calculator.graph');
     }
 
+    public function simple() {
+        return view('pages.back.calculator.simple');
+    }
+
     public function create()
     {
         $operations = Operation::all();
