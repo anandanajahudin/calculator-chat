@@ -744,6 +744,23 @@ class CalculatorController extends Controller
                                     'angka3' => $angka3,
                                     'angkaS' => $angkaS
                                 ]);
+                        }
+
+                    } else if (str_contains($chat, 'circle')) {
+
+                        if ($jumlahBilangan == 1) {
+
+                            // Luas lingkaran A = pi * r * r
+                            $hasil = pi() * pow($angka1, 2);
+
+                            $operator = "circle";
+
+                            $calculator = Calculator::create([
+                                'chat' => $chat,
+                                'first_number' => $angka1,
+                                'operator' => $operator,
+                                'result' => $hasil,
+                            ]);
 
                         } else {
                             return redirect()->route('dashboard')->with(['error' => 'Your input is invalid!']);

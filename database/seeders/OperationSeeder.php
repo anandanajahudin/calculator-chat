@@ -137,5 +137,11 @@ class OperationSeeder extends Seeder
             'description' => 'heron(6, 8, 10)',
             'created_at' => Carbon::now(),
         ]);
+        DB::table('operations')->insert([
+            'name' => 'Cicle theorem',
+            'operator' => 'circle',
+            'description' => 'circle(10)',
+            'created_at' => Carbon::now(),
+        ]);
     }
 }
